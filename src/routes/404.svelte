@@ -1,9 +1,6 @@
 <script lang="ts">
 	import MainContext from '$lib/MainContext.svelte';
 	import Nav from '$lib/Nav.svelte'
-	function e() {
-		alert();
-	}
 </script>
 <Nav title="找不到页面" background />
 <MainContext>

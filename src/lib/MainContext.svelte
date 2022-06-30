@@ -5,12 +5,12 @@
 	div {
 		padding-left: 0.8em;
 		padding-right: 0.8em;
-		padding-top: 2.8em;
+		padding-top: 2.4em;
 		color: white;
 	}
 	@media screen and (min-width: 900px) {
 		div {
-			padding-top: 2.8em;
+			padding-top: 2.4em;
 			border-radius: 10px;
 			width: 900px;
 			margin: auto;

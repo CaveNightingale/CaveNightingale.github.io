@@ -8,13 +8,17 @@
 		width: 100%;
 		height: 2.8em;
 		background-color: white;
-		border-radius: 0.3em;
+		border-radius: 0.2em;
 		box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 4px 0px;
 		color: black;
-		opacity: 0.85;
+		opacity: 0.9;
 		align-items: center;
 		display: flex;
 		user-select: none;
+		margin-top: 0.5em;
+	}
+	.outer:hover {
+		filter: brightness(0.9);
 	}
 	.inner {
 		padding: 1em;

@@ -5,6 +5,7 @@
 
 <svelte:head>
 	<title>夜莺洞穴 - {title}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 </svelte:head>
 
 <div id="topbar">
@@ -30,20 +31,19 @@
 		left: 1em;
 	}
 </style>
-
 {#if background}
-<div class="klpbg"></div>
-<style>
-	.klpbg {
-		background: url(https://api.klpbbs.com/api/img/acg/) no-repeat;
-		background-size: cover;
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		left: 0px;
-		top: 0px;
-		filter: brightness(0.75);
-		z-index: -100;
-	}
-</style>
+	<div class="klpbg"></div>
+	<style>
+		.klpbg {
+			background: url(https://api.klpbbs.com/api/img/acg/) no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			filter: brightness(0.75);
+			z-index: -100;
+		}
+	</style>
 {/if}
