@@ -8,7 +8,6 @@ const userGroupExRegex = /<li><em class="xg1">扩展用户组&nbsp;&nbsp;<\/em>(
 const postsRegex = / target="_blank">回帖数 (-?[0-9]+?)<\/a>/;
 const threadsRegex = / target="_blank">主题数 (-?[0-9]+?)<\/a>/;
 
-
 exports.handler = function (event, context) {
 	if (event.httpMethod == 'GET') {
 		return new Promise((resolve, reject) => {
@@ -22,9 +21,8 @@ exports.handler = function (event, context) {
 					body: JSON.stringify(obj)
 				});
 			}
-			if (!/^[0-9]+$/.test(event.queryStringParameters.uid)) {
-				send({ error: 'illegal uid' })
-			}
+			if (!/^[0-9]+$/.test(event.queryStringParameters.uid))
+				send({ error: 'illegal uid' });
 			https.get('https://www.mcbbs.net/?' + event.queryStringParameters.uid, (msg) => {
 				let data = '', result = {};
 				msg.on('data', input => data += input);
@@ -34,7 +32,7 @@ exports.handler = function (event, context) {
 						result.username = usernameParsed[1];
 					let creditParsed = creditRegex.exec(data);
 					if (creditParsed) {
-						let credits = {}
+						let credits = {};
 						for (let i = 0; i < creditList.length; i++)
 							credits[creditList[i]] = parseInt(creditParsed[i + 1]);
 						result.credits = credits;
@@ -62,7 +60,7 @@ exports.handler = function (event, context) {
 					if (threadsParsed)
 						result.threads = parseInt(threadsParsed[1]);
 					if (usernameParsed && creditParsed)
-						send(result)
+						send(result); 
 					else
 						send({ error: 'Credit Not Found' });
 				});

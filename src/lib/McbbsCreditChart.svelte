@@ -94,8 +94,9 @@
 			ctx.strokeStyle = color;
 			ctx.lineWidth = 2;
 			ctx.font = '400 ' + (canvasWidth / 60) + 'px serif';
-			let startA = 2 * Math.PI * (sum / totalCredit * expandProgress - 1 / 4);
-			let endA = 2 * Math.PI * ((sum += credits[name] * weight) / totalCredit * expandProgress - 1 / 4);
+			let absTotal = Math.abs(totalCredit); // make sure negative credit has a negtive angle
+			let startA = 2 * Math.PI * (sum / absTotal * expandProgress - 1 / 4);
+			let endA = 2 * Math.PI * ((sum += credits[name] * weight) / absTotal * expandProgress - 1 / 4);
 			if(startA > endA)
 				[startA, endA] = [endA, startA];// handle negetive credits
 			let midA = (startA + endA) / 2;
@@ -113,7 +114,7 @@
 			ctx.moveTo(xy, xy);
 			ctx.lineTo(lineEndX, lineEndY);
 			ctx.stroke();
-			if(midA > Math.PI / 2) {
+			if(simplifyA(midA) > Math.PI / 2) {
 				let x = lineEndX - (canvasWidth / 10);
 				ctx.lineTo(x, lineEndY);
 				ctx.fillText(name + credits[name], x, lineEndY - canvasWidth / 120);
@@ -157,6 +158,12 @@
 			return 'D';
 		else
 			return 'E';
+	}
+	function simplifyA(a: number) { // make sure -pi/2 <= a < 3pi/2 
+		let tmp = (a + Math.PI / 2) % (Math.PI * 2);
+		if(tmp < 0)
+			tmp += Math.PI * 2;
+		return tmp - Math.PI / 2; 
 	}
 	onMount(setup);
 	onDestroy(() => interval != 0 ? clearInterval(interval) : 0);

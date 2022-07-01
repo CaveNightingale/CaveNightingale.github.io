@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CreditChartUserScript from "$lib/CreditChartUserScript.svelte";
 	import Footer from "$lib/Footer.svelte";
 	import MainContext from "$lib/MainContext.svelte";
 	import McbbsCreditChart from "$lib/McbbsCreditChart.svelte";
@@ -75,7 +76,9 @@
 		<Section>
 			加载中。。。
 		</Section>
-	{:else if renderingUser !== 'none'}
+	{:else if renderingUser === 'none'}
+		<CreditChartUserScript />
+	{:else}
 		<McbbsCreditChart {renderingUser} />
 	{/if}
 	<Footer>
@@ -91,6 +94,7 @@
 		border: 0px;
 		border-radius: 0.1em;
 		height: 2em;
+		width: 4em;
 		float: right;
 	}
 </style>
