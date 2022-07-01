@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Footer from '$lib/Footer.svelte';
-import MainContext from '$lib/MainContext.svelte';
+	import MainContext from '$lib/MainContext.svelte';
 	import MenuEntry from '$lib/MenuEntry.svelte';
-	import Nav from '$lib/Nav.svelte'
+	import Nav from '$lib/Nav.svelte';
 </script>
 <Nav title="目录" background />
 <MainContext>

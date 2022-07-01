@@ -13,21 +13,32 @@
 			case 'none':
 			case 'pending':
 			case 'error':
-				title = 'MCBBS积分分析'
-				break
+				title = 'MCBBS积分分析';
+				break;
 			default:
-				title = 'MCBBS积分分析 - ' + renderingUser.username
+				title = 'MCBBS积分分析 - ' + renderingUser.username;
 		}
 	};
 
-	const FUNCTION_URL = "https://service-90k6etn2-1312710079.gz.apigw.tencentcs.com/release/get-mcbbs-userstat?uid="
+	const FUNCTION_URL_BACKUP = "https://service-90k6etn2-1312710079.gz.apigw.tencentcs.com/release/get-mcbbs-userstat?uid="
+	const FUNCTION_URL = "https://master--cavenightingale.netlify.app/.netlify/functions/get-mcbbs-credit?uid=";
 
 	async function getUserInfo(uid: number): Promise<any> {
-		let result = await (await fetch(FUNCTION_URL + uid)).json()
-		if(result.error)
-			throw new Error(result.error)
+		let result, retryCount = 0;
+		while(!result && (retryCount++ < 3)){ // AutoRetry
+			try {
+				result = await (await fetch(FUNCTION_URL + uid)).json();
+			} catch {
+			}
+		}
+		if(!result)
+			throw new Error('Cannot connect to proxy');
+		else if(result.error)
+			throw new Error(result.error);
+		else if(!result.username)
+			throw new Error("Function returns improper data");
 		else
-			return result
+			return result;
 	}
 	async function load() {
 		let uid = parseInt(uidInput);
@@ -37,14 +48,14 @@
 				renderingUser = await getUserInfo(uid);
 				history.pushState({}, '', location.pathname + '?uid=' + uid);
 			} catch {
-				renderingUser = 'error'
+				renderingUser = 'error';
 			}
 		} else {
-			renderingUser = 'error'
+			renderingUser = 'error';
 		}
 	}
 	function setup() {
-		uidInput = new URLSearchParams(location.search).get('uid') || ''
+		uidInput = new URLSearchParams(location.search).get('uid') || '';
 		if(uidInput != '')
 			load();
 	}
@@ -68,7 +79,7 @@
 		<McbbsCreditChart {renderingUser} />
 	{/if}
 	<Footer>
-		说明：等级判定与排位有关，前150名判为A级，前400名判为B级，前1000名判为C级，除此之外大于等于零的判D级，小于零的判E级。采用2022年4月xmdhs统计数据。
+		说明：等级判定与排位有关，前150名判为A级，前400名判为B级，前1000名判为C级，除此之外大于等于零的判D级，小于零的判E级。采用2022年4月xmdhs统计数据。页面使用的跨域代理为https://master--cavenightingale.netlify.app/.netlify/functions/get-mcbbs-credit?uid=，Netlify超时时间长达10秒而且访问MCBBS速度较慢，故可能出现长时间加载的情况，可以尝试再次点击“确定”。
 	</Footer>
 </MainContext>
 <style>

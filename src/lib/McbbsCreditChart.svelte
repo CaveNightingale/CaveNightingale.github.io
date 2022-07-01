@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onDestroy, onMount } from "svelte";
 
-	import Section from "./Section.svelte"
+	import Section from "./Section.svelte";
 	interface UserInfo {
 		username: string
 		credits: any
@@ -41,7 +41,7 @@
 	let interval: number;
 
 	$: {
-		totalCredit = renderingUser.credits['积分']
+		totalCredit = renderingUser.credits['积分'];
 		let creditsTemp: any = {};
 		let sum = 0;
 		for(let dt of creditTable) {
@@ -49,13 +49,13 @@
 			switch(dt[1]) {
 				case '发帖数':
 					n = renderingUser.posts + renderingUser.threads;
-					break
+					break;
 				case '主题数':
 					n = renderingUser.threads;
-					break
+					break;
 				case '精华数':// 精华最后出现，从个人主页看不到精华量
 					n = (totalCredit - sum) / 45;
-					break
+					break;
 				default:
 					n = renderingUser.credits[dt[1]];
 			}
