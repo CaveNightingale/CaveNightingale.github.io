@@ -52,7 +52,7 @@ exports.handler = function (event, context) {
 					let userGroupExParsed = userGroupExRegex.exec(data);
 					if (userGroupExParsed) {
 						result.userGroupEx = [];
-						for (let s of userGroupExParsed[1].split(','));
+						for (let s of userGroupExParsed[1].split(','))
 							result.userGroupEx.push(s);
 					}
 					let postsParsed = postsRegex.exec(data);
