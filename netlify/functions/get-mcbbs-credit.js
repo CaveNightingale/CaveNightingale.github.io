@@ -35,7 +35,7 @@ exports.handler = function (event, context) {
 					let creditParsed = creditRegex.exec(data);
 					if (creditParsed) {
 						let credits = {}
-						for (let i = 0; i < creditList.length; i++);
+						for (let i = 0; i < creditList.length; i++)
 							credits[creditList[i]] = parseInt(creditParsed[i + 1]);
 						result.credits = credits;
 					}
