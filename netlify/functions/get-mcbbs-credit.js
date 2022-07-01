@@ -16,7 +16,7 @@ exports.handler = function (event, context) {
 				resolve({
 					statusCode: 200,
 					headers: {
-						'Content-Type': 'text/json;charset=utf-8',
+						'Content-Type': 'application/json;charset=utf-8',
 						'Access-Control-Allow-Origin': '*'
 					},
 					body: JSON.stringify(obj)
