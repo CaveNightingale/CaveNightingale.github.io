@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Section from "./Section.svelte";
-	import { applyPatch } from "diff/dist/diff.js";
+	import { applyPatch } from "diff";
 	import MenuEntry from "./MenuEntry.svelte";
 
 	const BASE_URL = 'https://greasyfork.org/scripts/407846-mcbbs-creditanalysis/code/MCBBS%20CreditAnalysis.user.js';
