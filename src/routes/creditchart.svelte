@@ -6,6 +6,7 @@
 	import Nav from "$lib/Nav.svelte";
 	import Section from "$lib/Section.svelte";
 	import { onMount } from "svelte";
+	let parent = '/';
 	let uidInput: string = '';
 	let title = 'MCBBS积分分析';
 	let renderingUser: any | 'pending' | 'error' | 'none' = 'none';
@@ -48,6 +49,7 @@
 			try {
 				renderingUser = await getUserInfo(uid);
 				history.pushState({}, '', location.pathname + '?uid=' + uid);
+				parent = '/creditchart';
 			} catch {
 				renderingUser = 'error';
 			}
@@ -62,7 +64,7 @@
 	}
 	onMount(setup);
 </script>
-<Nav title={title} background />
+<Nav {title} {parent} background />
 <MainContext>
 	<Section>
 		输入用户的UID：
@@ -88,13 +90,41 @@
 <style>
 	input {
 		width: 8em;
+		border-width: 1px;
+		border-radius: 0.2em;
+		border-style: solid;
+		border-color: #8f8f8f;
+		padding-left: 0.4em;
+		padding-right: 0.4em;
+		padding-top: 0.2em;
+		padding-bottom: 0.2em;
+	}
+
+	input:focus {
+		border-width: 1px;
+		border-color: #000000;
+	}
+
+	input:hover {
+		background-color: #0000000f;
 	}
 
 	button {
-		border: 0px;
-		border-radius: 0.1em;
+		border-width: 1px;
+		border-radius: 0.3em;
+		border-color: #8f8f8f;
+		border-style: solid;
 		height: 2em;
-		width: 4em;
+		width: 6em;
 		float: right;
+		font-weight: 500;
+		color: #000000;
+		padding: 0px;
+		margin: 0px;
+		background-color: #00000000;
+	}
+
+	button:hover {
+		background-color: #0000000f;
 	}
 </style>

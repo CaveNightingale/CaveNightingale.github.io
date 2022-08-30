@@ -2,12 +2,11 @@
 	"name": "cavenightingale.github.io",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev",
+		"dev": "svelte-kit dev --host --port=8080",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
-		"preview": "svelte-kit preview",
+		"preview": "svelte-kit preview --host --port=8080",
 		"prepare": "svelte-kit sync",
-		"test": "playwright test",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
 	},

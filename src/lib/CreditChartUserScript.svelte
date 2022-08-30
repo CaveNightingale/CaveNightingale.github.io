@@ -53,10 +53,23 @@
 {/if}
 <style>
 	button {
-		border: 0px;
+		border-width: 1px;
+		border-radius: 0.3em;
+		border-color: #8f8f8f;
+		border-style: solid;
 		height: 2em;
-		width: 4em;
+		width: 6em;
+		font-weight: 500;
+		color: #000000;
+		padding: 0px;
+		margin: 0px;
+		background-color: #00000000;
 	}
+
+	button:hover {
+		background-color: #0000000f;
+	}
+
 	a {
 		color: black !important;
 	}

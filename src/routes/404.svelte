@@ -1,6 +1,13 @@
 <script lang="ts">
 	import MainContext from '$lib/MainContext.svelte';
 	import Nav from '$lib/Nav.svelte';
+	import { onMount } from 'svelte';
+	function main() {
+		if(location.href.endsWith("/")) {
+			location.href = location.href.replace(/\/$/, '');
+		}
+	}
+	onMount(main);
 </script>
 <Nav title="找不到页面" background />
 <MainContext>

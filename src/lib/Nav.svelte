@@ -1,6 +1,10 @@
 <script lang="ts">
 	export let title: string;
 	export let background: boolean;
+	export let parent: string = "/";
+	function back() {
+		open(parent, '_self');
+	}
 </script>
 
 <svelte:head>
@@ -9,6 +13,7 @@
 </svelte:head>
 
 <div id="topbar">
+	<img on:click={back} id="back-button" alt="返回" title="返回" src="assets/icon/parent.svg" />
 	<div id="topbar-title"><b>{title}</b></div>
 </div>
 <style>
@@ -19,16 +24,23 @@
 		border: 0px;
 		width: 100%;
 		height: 2.4em;
-		background-color: rgb(255, 163, 192);
+		background-color: rgb(247, 169, 195);
 		display: flex;
 		align-items: center;
 		box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 5px 1px;
+		-webkit-user-drag: none;
 	}
 
 	#topbar-title {
 		font-size: large;
-		position: absolute;
-		left: 1em;
+		/* position: absolute; */
+		padding-left: 1em;
+	}
+
+	#back-button {
+		height: 1.2em;
+		padding-left: 1em;
+		user-select: none;
 	}
 </style>
 {#if background}
