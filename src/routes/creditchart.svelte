@@ -115,7 +115,7 @@
 		border-color: #8f8f8f;
 		border-style: solid;
 		height: 2em;
-		width: 6em;
+		width: 5em;
 		float: right;
 		font-weight: 500;
 		color: #000000;

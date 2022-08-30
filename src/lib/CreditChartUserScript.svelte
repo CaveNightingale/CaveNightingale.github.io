@@ -58,7 +58,7 @@
 		border-color: #8f8f8f;
 		border-style: solid;
 		height: 2em;
-		width: 6em;
+		width: 5em;
 		font-weight: 500;
 		color: #000000;
 		padding: 0px;
