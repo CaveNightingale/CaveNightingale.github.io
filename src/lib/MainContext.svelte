@@ -1,4 +1,4 @@
-<div>
+<div class="main-context">
 	<slot></slot>
 </div>
 <style>
@@ -8,11 +8,11 @@
 		padding-top: 2.4em;
 		color: white;
 	}
-	@media screen and (min-width: 900px) {
+	@media screen and (min-width: 1200px) {
 		div {
 			padding-top: 2.4em;
 			border-radius: 10px;
-			width: 900px;
+			width: 1200px;
 			margin: auto;
 			position: absolute;
 			top: 0;

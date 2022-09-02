@@ -2,7 +2,9 @@
 	import Section from "./Section.svelte";
 	import { applyPatch } from "diff";
 	import MenuEntry from "./MenuEntry.svelte";
-
+	import PlainTextView from "./view/PlainTextView.svelte";
+	import { showPopup } from "./common";
+	
 	const BASE_URL = 'https://greasyfork.org/scripts/407846-mcbbs-creditanalysis/code/MCBBS%20CreditAnalysis.user.js';
 	const PATCH_URL = '/assets/creditchart/userscript.patch';
 	let state: 'none' | 'confirm' | 'pending' | 'data' | 'error' = 'none';
@@ -24,6 +26,7 @@
 
 	function copy() {
 		navigator.clipboard.writeText(text);
+		showPopup("已复制脚本");
 	}
 </script>
 {#if state == 'none'}
@@ -41,9 +44,11 @@
 {:else if state == 'data'}
 	<Section>
 		<p>将以下内容复制到TamperMonkey的“添加新脚本’页面中，然后保存。</p>
+		<p>
 		<button on:click={copy}>复制</button>
 		<button on:click={() => state = 'none'}>取消</button>
-		<pre>{text}</pre>
+		</p>
+		<p><PlainTextView data={text} /></p>
 	</Section>
 {:else if state == 'error'}
 	<Section>
@@ -75,8 +80,5 @@
 	}
 	p {
 		user-select: none;
-	}
-	pre {
-		white-space: pre-wrap;
 	}
 </style>

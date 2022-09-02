@@ -14,9 +14,9 @@
 		align-items: center;
 		display: flex;
 		margin-top: 0.5em;
+		padding: 1em;
 	}
 	.inner {
-		padding: 1em;
 		width: 100%;
 	}
 </style>

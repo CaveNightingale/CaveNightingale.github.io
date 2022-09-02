@@ -1,966 +1,116 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<title>获取免费的MCBBS禁言代码</title>
-		<meta name="theme-color" content="#ffffff">
-		<link rel="stylesheet" type="text/css" href="../assets/freemutecode/style.css">
-		<style type="text/css">
-			div.c9 {
-				clear: both;
-				text-align: center;
-			}
-
-			span.c8 {
-				border-width: 0px;
-				font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-				font-size: 1px;
-				list-style-type: none;
-				margin: 0px;
-				outline-width: 0px;
-				padding: 0px
-			}
-
-			span.c7 {
-				font-size: small;
-			}
-
-			div.c6 {
-				clear: both;
-				text-align: center
-			}
-
-			span.c5 {
-				font-weight: bold;
-			}
-
-			div.c4 {
-				text-align: center
-			}
-
-			strong.c3 {
-				text-decoration: underline
-			}
-
-			div.c2 {
-				width: 520px;
-				margin: 0 auto;
-			}
-
-			span.c1 {
-				text-decoration: underline
-			}
-
-		</style>
-		<style type="text/css">
-			.at-icon {
-				fill: #fff;
-				border: 0
-			}
-
-			.at-icon-wrapper {
-				display: inline-block;
-				overflow: hidden
-			}
-
-			a .at-icon-wrapper {
-				cursor: pointer
-			}
-
-			.at-rounded,
-			.at-rounded-element .at-icon-wrapper {
-				border-radius: 12%
-			}
-
-			.at-circular,
-			.at-circular-element .at-icon-wrapper {
-				border-radius: 50%
-			}
-
-			.addthis_32x32_style .at-icon {
-				width: 2pc;
-				height: 2pc
-			}
-
-			.addthis_24x24_style .at-icon {
-				width: 24px;
-				height: 24px
-			}
-
-			.addthis_20x20_style .at-icon {
-				width: 20px;
-				height: 20px
-			}
-
-			.addthis_16x16_style .at-icon {
-				width: 1pc;
-				height: 1pc
-			}
-
-			#at16lb {
-				display: none;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 1001;
-				background-color: #000;
-				opacity: .001
-			}
-
-			#at_complete,
-			#at_error,
-			#at_share,
-			#at_success {
-				position: static !important
-			}
-
-			.at15dn {
-				display: none
-			}
-
-			#at15s,
-			#at16p,
-			#at16p form input,
-			#at16p label,
-			#at16p textarea,
-			#at_share .at_item {
-				font-family: arial, helvetica, tahoma, verdana, sans-serif !important;
-				font-size: 9pt !important;
-				outline-style: none;
-				outline-width: 0;
-				line-height: 1em
-			}
-
-			* html #at15s.mmborder {
-				position: absolute !important
-			}
-
-			#at15s.mmborder {
-				position: fixed !important;
-				width: 250px !important
-			}
-
-			#at15s {
-				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);
-				float: none;
-				line-height: 1em;
-				margin: 0;
-				overflow: visible;
-				padding: 5px;
-				text-align: left;
-				position: absolute
-			}
-
-			#at15s a,
-			#at15s span {
-				outline: 0;
-				direction: ltr;
-				text-transform: none
-			}
-
-			#at15s .at-label {
-				margin-left: 5px
-			}
-
-			#at15s .at-icon-wrapper {
-				width: 1pc;
-				height: 1pc;
-				vertical-align: middle
-			}
-
-			#at15s .at-icon {
-				width: 1pc;
-				height: 1pc
-			}
-
-			.at4-icon {
-				display: inline-block;
-				background-repeat: no-repeat;
-				background-position: top left;
-				margin: 0;
-				overflow: hidden;
-				cursor: pointer
-			}
-
-			.addthis_16x16_style .at4-icon,
-			.addthis_default_style .at4-icon,
-			.at4-icon,
-			.at-16x16 {
-				width: 1pc;
-				height: 1pc;
-				line-height: 1pc;
-				background-size: 1pc !important
-			}
-
-			.addthis_32x32_style .at4-icon,
-			.at-32x32 {
-				width: 2pc;
-				height: 2pc;
-				line-height: 2pc;
-				background-size: 2pc !important
-			}
-
-			.addthis_24x24_style .at4-icon,
-			.at-24x24 {
-				width: 24px;
-				height: 24px;
-				line-height: 24px;
-				background-size: 24px !important
-			}
-
-			.addthis_20x20_style .at4-icon,
-			.at-20x20 {
-				width: 20px;
-				height: 20px;
-				line-height: 20px;
-				background-size: 20px !important
-			}
-
-			.at4-icon.circular,
-			.circular .at4-icon,
-			.circular.aticon {
-				border-radius: 50%
-			}
-
-			.at4-icon.rounded,
-			.rounded .at4-icon {
-				border-radius: 4px
-			}
-
-			.at4-icon-left {
-				float: left
-			}
-
-			#at15s .at4-icon {
-				text-indent: 20px;
-				padding: 0;
-				overflow: visible;
-				white-space: nowrap;
-				background-size: 1pc;
-				width: 1pc;
-				height: 1pc;
-				background-position: top left;
-				display: inline-block;
-				line-height: 1pc
-			}
-
-			.addthis_vertical_style .at4-icon,
-			.at4-follow-container .at4-icon {
-				margin-right: 5px
-			}
-
-			html>body #at15s {
-				width: 250px !important
-			}
-
-			#at15s.atm {
-				background: none !important;
-				padding: 0 !important;
-				width: 10pc !important
-			}
-
-			#at15s_inner {
-				background: #fff;
-				border: 1px solid #fff;
-				margin: 0
-			}
-
-			#at15s_head {
-				position: relative;
-				background: #f2f2f2;
-				padding: 4px;
-				cursor: default;
-				border-bottom: 1px solid #e5e5e5
-			}
-
-			.at15s_head_success {
-				background: #cafd99 !important;
-				border-bottom: 1px solid #a9d582 !important
-			}
-
-			.at15s_head_success a,
-			.at15s_head_success span {
-				color: #000 !important;
-				text-decoration: none
-			}
-
-			#at15s_brand,
-			#at15sptx,
-			#at16_brand {
-				position: absolute
-			}
-
-			#at15s_brand {
-				top: 4px;
-				right: 4px
-			}
-
-			.at15s_brandx {
-				right: 20px !important
-			}
-
-			a#at15sptx {
-				top: 4px;
-				right: 4px;
-				text-decoration: none;
-				color: #4c4c4c;
-				font-weight: 700
-			}
-
-			#at15sptx:hover {
-				text-decoration: underline
-			}
-
-			#at16_brand {
-				top: 5px;
-				right: 30px;
-				cursor: default
-			}
-
-			#at_hover {
-				padding: 4px
-			}
-
-			#at_hover .at_item,
-			#at_share .at_item {
-				background: #fff !important;
-				float: left !important;
-				color: #4c4c4c !important
-			}
-
-			#at_share .at_item .at-icon-wrapper {
-				margin-right: 5px
-			}
-
-			#at_hover .at_bold {
-				font-weight: 700;
-				color: #000 !important
-			}
-
-			#at_hover .at_item {
-				width: 7pc !important;
-				padding: 2px 3px !important;
-				margin: 1px;
-				text-decoration: none !important
-			}
-
-			#at_hover .at_item.athov,
-			#at_hover .at_item:focus,
-			#at_hover .at_item:hover {
-				margin: 0 !important
-			}
-
-			#at_hover .at_item.athov,
-			#at_hover .at_item:focus,
-			#at_hover .at_item:hover,
-			#at_share .at_item.athov,
-			#at_share .at_item:hover {
-				background: #f2f2f2 !important;
-				border: 1px solid #e5e5e5;
-				color: #000 !important;
-				text-decoration: none
-			}
-
-			.ipad #at_hover .at_item:focus {
-				background: #fff !important;
-				border: 1px solid #fff
-			}
-
-			.at15t {
-				display: block !important;
-				height: 1pc !important;
-				line-height: 1pc !important;
-				padding-left: 20px !important;
-				background-position: 0 0;
-				text-align: left
-			}
-
-			.addthis_button,
-			.at15t {
-				cursor: pointer
-			}
-
-			.addthis_toolbox a.at300b,
-			.addthis_toolbox a.at300m {
-				width: auto
-			}
-
-			.addthis_toolbox a {
-				margin-bottom: 5px;
-				line-height: initial
-			}
-
-			.addthis_toolbox.addthis_vertical_style {
-				width: 200px
-			}
-
-			.addthis_button_facebook_like .fb_iframe_widget {
-				line-height: 100%
-			}
-
-			.addthis_button_facebook_like iframe.fb_iframe_widget_lift {
-				max-width: none
-			}
-
-			.addthis_toolbox a.addthis_button_counter,
-			.addthis_toolbox a.addthis_button_facebook_like,
-			.addthis_toolbox a.addthis_button_facebook_send,
-			.addthis_toolbox a.addthis_button_facebook_share,
-			.addthis_toolbox a.addthis_button_foursquare,
-			.addthis_toolbox a.addthis_button_linkedin_counter,
-			.addthis_toolbox a.addthis_button_pinterest_pinit,
-			.addthis_toolbox a.addthis_button_tweet {
-				display: inline-block
-			}
-
-			.addthis_toolbox span.addthis_follow_label {
-				display: none
-			}
-
-			.addthis_toolbox.addthis_vertical_style span.addthis_follow_label {
-				display: block;
-				white-space: nowrap
-			}
-
-			.addthis_toolbox.addthis_vertical_style a {
-				display: block
-			}
-
-			.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a {
-				line-height: 2pc;
-				height: 2pc
-			}
-
-			.addthis_toolbox.addthis_vertical_style .at300bs {
-				margin-right: 4px;
-				float: left
-			}
-
-			.addthis_toolbox.addthis_20x20_style span {
-				line-height: 20px
-			}
-
-			.addthis_toolbox.addthis_32x32_style span {
-				line-height: 2pc
-			}
-
-			.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,
-			.addthis_toolbox.addthis_pill_combo_style a {
-				float: left
-			}
-
-			.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet {
-				margin-top: -2px
-			}
-
-			.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact {
-				margin-right: 4px
-			}
-
-			.addthis_default_style .addthis_separator {
-				margin: 0 5px;
-				display: inline
-			}
-
-			div.atclear {
-				clear: both
-			}
-
-			.addthis_default_style .addthis_separator,
-			.addthis_default_style .at4-icon,
-			.addthis_default_style .at300b,
-			.addthis_default_style .at300bo,
-			.addthis_default_style .at300bs,
-			.addthis_default_style .at300m {
-				float: left
-			}
-
-			.at300b img,
-			.at300bo img {
-				border: 0
-			}
-
-			a.at300b .at4-icon,
-			a.at300m .at4-icon {
-				display: block
-			}
-
-			.addthis_default_style .at300b,
-			.addthis_default_style .at300bo,
-			.addthis_default_style .at300m {
-				padding: 0 2px
-			}
-
-			.at300b,
-			.at300bo,
-			.at300bs,
-			.at300m {
-				cursor: pointer
-			}
-
-			.addthis_button_facebook_like.at300b:hover,
-			.addthis_button_facebook_like.at300bs:hover,
-			.addthis_button_facebook_send.at300b:hover,
-			.addthis_button_facebook_send.at300bs:hover {
-				opacity: 1
-			}
-
-			.addthis_20x20_style .at15t,
-			.addthis_20x20_style .at300bs {
-				overflow: hidden;
-				display: block;
-				height: 20px !important;
-				width: 20px !important;
-				line-height: 20px !important
-			}
-
-			.addthis_32x32_style .at15t,
-			.addthis_32x32_style .at300bs {
-				overflow: hidden;
-				display: block;
-				height: 2pc !important;
-				width: 2pc !important;
-				line-height: 2pc !important
-			}
-
-			.at300bs {
-				overflow: hidden;
-				display: block;
-				background-position: 0 0;
-				height: 1pc;
-				width: 1pc;
-				line-height: 1pc !important
-			}
-
-			.addthis_default_style .at15t_compact,
-			.addthis_default_style .at15t_expanded {
-				margin-right: 4px
-			}
-
-			#at_share .at_item {
-				width: 123px !important;
-				padding: 4px;
-				margin-right: 2px;
-				border: 1px solid #fff
-			}
-
-			#at16p {
-				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);
-				z-index: 10000001;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 300px;
-				padding: 10px;
-				margin: 0 auto;
-				margin-top: -185px;
-				margin-left: -155px;
-				font-family: arial, helvetica, tahoma, verdana, sans-serif;
-				font-size: 9pt;
-				color: #5e5e5e
-			}
-
-			#at_share {
-				margin: 0;
-				padding: 0
-			}
-
-			#at16pt {
-				position: relative;
-				background: #f2f2f2;
-				height: 13px;
-				padding: 5px 10px
-			}
-
-			#at16pt a,
-			#at16pt h4 {
-				font-weight: 700
-			}
-
-			#at16pt h4 {
-				display: inline;
-				margin: 0;
-				padding: 0;
-				font-size: 9pt;
-				color: #4c4c4c;
-				cursor: default
-			}
-
-			#at16pt a {
-				position: absolute;
-				top: 5px;
-				right: 10px;
-				color: #4c4c4c;
-				text-decoration: none;
-				padding: 2px
-			}
-
-			#at15sptx:focus,
-			#at16pt a:focus {
-				outline: thin dotted
-			}
-
-			#at15s #at16pf a {
-				top: 1px
-			}
-
-			#_atssh {
-				width: 1px !important;
-				height: 1px !important;
-				border: 0 !important
-			}
-
-			.atm {
-				width: 10pc !important;
-				padding: 0;
-				margin: 0;
-				line-height: 9pt;
-				letter-spacing: normal;
-				font-family: arial, helvetica, tahoma, verdana, sans-serif;
-				font-size: 9pt;
-				color: #444;
-				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);
-				padding: 4px
-			}
-
-			.atm-f {
-				text-align: right;
-				border-top: 1px solid #ddd;
-				padding: 5px 8px
-			}
-
-			.atm-i {
-				background: #fff;
-				border: 1px solid #d5d6d6;
-				padding: 0;
-				margin: 0;
-				box-shadow: 1px 1px 5px rgba(0, 0, 0, .15)
-			}
-
-			.atm-s {
-				margin: 0 !important;
-				padding: 0 !important
-			}
-
-			.atm-s a:focus {
-				border: transparent;
-				outline: 0;
-				transition: none
-			}
-
-			#at_hover.atm-s a,
-			.atm-s a {
-				display: block;
-				text-decoration: none;
-				padding: 4px 10px;
-				color: #235dab !important;
-				font-weight: 400;
-				font-style: normal;
-				transition: none
-			}
-
-			#at_hover.atm-s .at_bold {
-				color: #235dab !important
-			}
-
-			#at_hover.atm-s a:hover,
-			.atm-s a:hover {
-				background: #2095f0;
-				text-decoration: none;
-				color: #fff !important
-			}
-
-			#at_hover.atm-s .at_bold {
-				font-weight: 700
-			}
-
-			#at_hover.atm-s a:hover .at_bold {
-				color: #fff !important
-			}
-
-			.atm-s a .at-label {
-				vertical-align: middle;
-				margin-left: 5px;
-				direction: ltr
-			}
-
-			.at_PinItButton {
-				display: block;
-				width: 40px;
-				height: 20px;
-				padding: 0;
-				margin: 0;
-				background-image: url(//s7.addthis.com/static/t00/pinit00.png);
-				background-repeat: no-repeat
-			}
-
-			.at_PinItButton:hover {
-				background-position: 0 -20px
-			}
-
-			.addthis_toolbox .addthis_button_pinterest_pinit {
-				position: relative
-			}
-
-			.at-share-tbx-element .fb_iframe_widget span {
-				vertical-align: baseline !important
-			}
-
-			#at16pf {
-				height: auto;
-				text-align: right;
-				padding: 4px 8px
-			}
-
-			.at-privacy-info {
-				position: absolute;
-				left: 7px;
-				bottom: 7px;
-				cursor: pointer;
-				text-decoration: none;
-				font-family: helvetica, arial, sans-serif;
-				font-size: 10px;
-				line-height: 9pt;
-				letter-spacing: .2px;
-				color: #666
-			}
-
-			.at-privacy-info:hover {
-				color: #000
-			}
-
-			.body .wsb-social-share .wsb-social-share-button-vert {
-				padding-top: 0;
-				padding-bottom: 0
-			}
-
-			.body .wsb-social-share.addthis_counter_style .addthis_button_tweet.wsb-social-share-button {
-				padding-top: 40px
-			}
-
-			.body .wsb-social-share.addthis_counter_style .addthis_button_facebook_like.wsb-social-share-button {
-				padding-top: 21px
-			}
-
-			@media print {
-
-				#at4-follow,
-				#at4-share,
-				#at4-thankyou,
-				#at4-whatsnext,
-				#at4m-mobile,
-				#at15s,
-				.at4,
-				.at4-recommended {
-					display: none !important
-				}
-			}
-
-			@media screen and (max-width:400px) {
-				.at4win {
-					width: 100%
-				}
-			}
-
-			@media screen and (max-height:700px) and (max-width:400px) {
-				.at4-thankyou-inner .at4-recommended-container {
-					height: 122px;
-					overflow: hidden
-				}
-
-				.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child {
-					border-bottom: 1px solid #c5c5c5
-				}
-			}
-		</style>
-		<style type="text/css">
-			.at-branding-logo {
-				font-family: helvetica, arial, sans-serif;
-				text-decoration: none;
-				font-size: 10px;
-				display: inline-block;
-				margin: 2px 0;
-				letter-spacing: .2px
-			}
-
-			.at-branding-logo .at-branding-icon {
-				background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")
-			}
-
-			.at-branding-logo .at-branding-icon,
-			.at-branding-logo .at-privacy-icon {
-				display: inline-block;
-				height: 10px;
-				width: 10px;
-				margin-left: 4px;
-				margin-right: 3px;
-				margin-bottom: -1px;
-				background-repeat: no-repeat
-			}
-
-			.at-branding-logo .at-privacy-icon {
-				background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")
-			}
-
-			.at-branding-logo span {
-				text-decoration: none
-			}
-
-			.at-branding-logo .at-branding-addthis,
-			.at-branding-logo .at-branding-powered-by {
-				color: #666
-			}
-
-			.at-branding-logo .at-branding-addthis:hover {
-				color: #333
-			}
-
-			.at-cv-with-image .at-branding-addthis,
-			.at-cv-with-image .at-branding-addthis:hover {
-				color: #fff
-			}
-
-			a.at-branding-logo:visited {
-				color: initial
-			}
-
-			.at-branding-info {
-				display: inline-block;
-				padding: 0 5px;
-				color: #666;
-				border: 1px solid #666;
-				border-radius: 50%;
-				font-size: 10px;
-				line-height: 9pt;
-				opacity: .7;
-				transition: all .3s ease;
-				text-decoration: none
-			}
-
-			.at-branding-info span {
-				border: 0;
-				clip: rect(0 0 0 0);
-				height: 1px;
-				margin: -1px;
-				overflow: hidden;
-				padding: 0;
-				position: absolute;
-				width: 1px
-			}
-
-			.at-branding-info:before {
-				content: 'i';
-				font-family: Times New Roman
-			}
-
-			.at-branding-info:hover {
-				color: #0780df;
-				border-color: #0780df
-			}
-		</style>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content=""><title>夜莺洞穴 - 获取免费的MCBBS禁言代码</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" data-svelte="svelte-1uyv5ok">
+	<link rel="stylesheet" href="/_app/immutable/assets/pages/freemutecode.svelte-7f53b0c1.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/Section.svelte_svelte_type_style_lang-caad4fbb.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/Nav-c9bdeb08.css">
+	<link rel="modulepreload" href="/_app/immutable/start-ab20d7b5.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-23bcd7f7.js">
+	<link rel="modulepreload" href="/_app/immutable/layout.svelte-6a28688b.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/freemutecode.svelte-bea9bdb6.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/Nav-b20ea265.js">
 	</head>
-
 	<body>
-		<br><br>
-		<nobr>
-			<div id="top">
-				<h3>获取你的免费MCBBS末地旅游代码！限时供应！</h3>
-			</div>
-			<div id="containar">
-				<div id="left">
-					<div id="leftheader">
-						<div id="leftheaderleft">
-							<h1><img src="../assets/freemutecode/block.png" alt="Free Minecraft Gift Codes" width="100px"
-									height="100px" align="right"></h1>
-						</div>
-						<div id="leftheaderright">
-							<h3>从我们这里免费获取MCBBS末地旅游代码！</h3>
-							<p>申请MCBBS禁言代码是有时间限制的<br>
-								在优惠结束之前，现在就加入吧。
-								<br>
-								<br>
-								不要错过 - 这是一个限时优惠。现在就申请!
-							</p>
-						</div>
-					</div>
-					<div id="leftheader2">
-						<h5>获取MCBBS禁言代码<br></h5>
-						<strong></strong>
-						<p><strong>原价：</strong> 多次灌水、版战和其他作死行为<br>
-							<strong>优惠：</strong> 100%免除额外作死<br>
-							<strong>你花费的：</strong> 没有什么！它是完全免费的！<br>
-							在活动过期之前，抓住你的MCBBS禁言代码！
-						</p>
-					</div>
-					<div id="redeemed">
-						<p>
-							此优惠每个用户只能兑换一次。<br>
-							你将不需要任何额外作死，这是一个完全免费的禁言。
-						</p>
-					</div>
-					<div class="c4" id="Features">
-						<h4>按照下面的简单步骤来申请你的免费MCBBS禁言代码：</h4>
-						<br>
-						<span class="c1">Step 1: 点击下面按钮中的两个 &amp; 确认</span>:<br>
-						<br>
-						<div id="socialmedia">
-							<div style="margin-left:35px;" class="addthis_inline_share_toolbox">
-								<a target="_blank" href="https://www.mcbbs.net/?3038"><img src="https://attachment.mcbbs.net/uc_server/data/avatar/000/00/30/38_avatar_big.jpg" width="50" height="50" alt="混乱"></a>
-								<a target="_blank" href="https://www.mcbbs.net/?3467"><img src="https://attachment.mcbbs.net/uc_server/data/avatar/000/00/34/67_avatar_big.jpg" width="50" height="50" alt="sjjklh"></a>
-								<a target="_blank" href="https://www.mcbbs.net/?84901"><img src="https://attachment.mcbbs.net/uc_server/data/avatar/000/08/49/01_avatar_big.jpg" width="50" height="50" alt="pogox"></a>
-								<a target="_blank" href="https://www.mcbbs.net/?265600"><img src="https://attachment.mcbbs.net/uc_server/data/avatar/000/26/56/00_avatar_big.jpg" width="50" height="50" alt="rom718"></a>
-								<a target="_blank" href="https://www.mcbbs.net/?5367"><img src="https://attachment.mcbbs.net/uc_server/data/avatar/000/00/53/67_avatar_big.jpg" width="50" height="50" alt="john180"></a>
-								<a target="_blank" href="https://www.mcbbs.net/?36116"><img src="https://attachment.mcbbs.net/uc_server/data/avatar/000/03/61/16_avatar_big.jpg" width="50" height="50" alt="magicbear"></a>
-								<a target="_blank" href="https://www.mcbbs.net/?2676420"><img src="https://attachment.mcbbs.net/uc_server/data/avatar/002/67/64/20_avatar_big.jpg" width="50" height="50" alt="bbsmaster"></a>
-								<a target="_blank" href="https://www.mcbbs.net/?564746"><img src="https://attachment.mcbbs.net/uc_server/data/avatar/000/56/47/46_avatar_big.jpg" width="50" height="50" alt="gamerteam"></a>
-							</div>
-							<br>
-							<br>
-							<span class="c1">Step 2: 把这个消息发个三个不同的版主。</span><br>
-							<br>
-							<p></p>
-							<div id="comment">
-								<textarea onclick="if (!window.__cfRLUnblockHandlers) return false; this.select(); show();"
-									id="comment" rows="4"
-									cols="60">最后！我得到了2-4-R论坛禁言待遇绝对免费！从https://cavenightingale.github.io/freemutecode那里得到你的</textarea>
-							</div>
-							<br>
-							<br>
-						</div>
-						<div id="after">» 完成所有步骤后... 点击下面的按钮。 «</div>
-						<div class="c4">
-							<input type="button" onclick="alert('哎呀! 看来你没有完成步骤2!')"
-								value="申请你的MCBSS禁言代码">
-						</div>
-						<br>
-						<br>
-						<br>
-					</div>
-				</div>
-			</div>
-			<div class="separator c6"><span class="c5">一旦你完成了步骤2...</span></div>
-			<br>
-			<br>
-			<div class="c4">如果你没有成功进入末地旅游，这里有个替代链接：<span
-					class="Apple-style-span c8"><a href="https://www.mcbbs.net/thread-968842-1-1.html"
-						target="_blank"><span class="c7">CLICK HERE</span></a></span></div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<div class="separator c9"></div>
-			<footer style="text-align: center;">
-				本页面使用全部的CSS和部分HTML代码来自原版freegiftcode，本页面为玩梗网页，请勿当真。<br/>
-				免费正版礼品码类网站属于诈骗性质，向社交网站发表类似内容可能会导致禁言或禁访，请勿作死。<br/>
-				参考<a href="https://www.mcbbs.net/thread-1226924-1-1.html">【残叶杂谈】扒一扒所谓“免 费 正 版 礼 品 码”的背后</a>
-			</footer>
-		</nobr>
-		
-	</body>
+		<div>
 
+
+
+
+<div id="topbar" class="svelte-w2ifdt"><img id="back-button" alt="返回" title="返回" src="assets/icon/parent.svg" class="svelte-w2ifdt">
+	<div id="topbar-title" class="svelte-w2ifdt"><b>获取免费的MCBBS禁言代码</b></div></div>
+
+
+<br class="svelte-1opdla8"><br class="svelte-1opdla8">
+<nobr class="svelte-1opdla8"><div id="top" class="svelte-1opdla8"><h3 class="svelte-1opdla8">获取你的免费MCBBS末地旅游代码！限时供应！</h3></div>
+	<div id="containar" class="svelte-1opdla8"><div id="left" class="svelte-1opdla8"><div id="leftheader" class="svelte-1opdla8"><div id="leftheaderleft" class="svelte-1opdla8"><h1 class="svelte-1opdla8"><img id="mcbbs-icon" src="../assets/freemutecode/block.gif" alt="Free Minecraft Gift Codes" width="90px" height="100px" class="svelte-1opdla8"></h1></div>
+				<div id="leftheaderright" class="svelte-1opdla8"><h3 class="svelte-1opdla8">从我们这里免费获取MCBBS末地旅游代码！</h3>
+					<p class="svelte-1opdla8">申请MCBBS禁言代码是有时间限制的<br class="svelte-1opdla8">
+						在优惠结束之前，现在就加入吧。
+						<br class="svelte-1opdla8">
+						<br class="svelte-1opdla8">
+						不要错过 - 这是一个限时优惠。现在就申请!
+					</p></div></div>
+			<div id="leftheader2" class="svelte-1opdla8"><h5 class="svelte-1opdla8">获取MCBBS禁言代码<br class="svelte-1opdla8"></h5>
+				<strong class="svelte-1opdla8"></strong>
+				<p class="svelte-1opdla8"><strong class="svelte-1opdla8">原价：</strong> 多次灌水、版战和其他作死行为<br class="svelte-1opdla8">
+					<strong class="svelte-1opdla8">优惠：</strong> 100%免除额外作死<br class="svelte-1opdla8">
+					<strong class="svelte-1opdla8">你花费的：</strong> 没有什么！它是完全免费的！<br class="svelte-1opdla8">
+					在活动过期之前，抓住你的MCBBS禁言代码！
+				</p></div>
+			<div id="redeemed" class="svelte-1opdla8"><p class="svelte-1opdla8">此优惠每个用户只能兑换一次。<br class="svelte-1opdla8">
+					你将不需要任何额外作死，这是一个完全免费的禁言。
+				</p></div>
+			<div class="c4 svelte-1opdla8" id="Features"><h4 class="svelte-1opdla8">按照下面的简单步骤来申请你的免费MCBBS禁言代码：</h4>
+				<br class="svelte-1opdla8">
+				<span class="c1 svelte-1opdla8">Step 1: 点击下面按钮中的两个 &amp; 确认</span>:<br class="svelte-1opdla8">
+				<br class="svelte-1opdla8">
+				<div id="socialmedia" class="svelte-1opdla8"><div class="svelte-1opdla8">
+						<a target="_blank" href="https://www.mcbbs.net/?3038}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=3038&size=big" title="混乱" width="50" height="50" alt="混乱"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?3467}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=3467&size=big" title="sjjklh" width="50" height="50" alt="sjjklh"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?5367}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=5367&size=big" title="john180" width="50" height="50" alt="john180"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?36116}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=36116&size=big" title="magicbear" width="50" height="50" alt="magicbear"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?66971}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=66971&size=big" title="妖梦的舔狗" width="50" height="50" alt="妖梦的舔狗"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?84901}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=84901&size=big" title="pogox" width="50" height="50" alt="pogox"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?265600}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=265600&size=big" title="rom718" width="50" height="50" alt="rom718"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?564746}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=564746&size=big" title="gamerteam" width="50" height="50" alt="gamerteam"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?2676420}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=2676420&size=big" title="bbsmaster" width="50" height="50" alt="bbsmaster"></a>
+						<br class="svelte-1opdla8">
+						<a target="_blank" href="https://www.mcbbs.net/?165947}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=165947&size=big" title="凛" width="50" height="50" alt="凛"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?1350847}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=1350847&size=big" title="广药" width="50" height="50" alt="广药"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?2153967}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=2153967&size=big" title="SHEEP_REALMS" width="50" height="50" alt="SHEEP_REALMS"></a>
+						<a target="_blank" href="https://www.mcbbs.net/?2999970}"><img src="https://www.mcbbs.net/uc_server/avatar.php?uid=2999970&size=big" title="声名我主宰" width="50" height="50" alt="声名我主宰"></a></div>
+					<br class="svelte-1opdla8">
+					<br class="svelte-1opdla8">
+					<span class="c1 svelte-1opdla8">Step 2: 把这个消息发个三个不同的版主。</span><br class="svelte-1opdla8">
+					<br class="svelte-1opdla8">
+					<p class="svelte-1opdla8"></p>
+					<div id="comment" class="svelte-1opdla8"><textarea id="comment" rows="4" cols="60" class="svelte-1opdla8">最后！我得到了2-4-R论坛禁言待遇绝对免费！从https://cavenightingale.github.io/freemutecode那里得到你的</textarea></div>
+					<br class="svelte-1opdla8">
+					<br class="svelte-1opdla8"></div>
+				<div id="after" class="svelte-1opdla8">» 完成所有步骤后... 点击下面的按钮。 «</div>
+				<div class="c4 svelte-1opdla8"><input type="button" value="申请你的MCBSS禁言代码" class="svelte-1opdla8"></div>
+				<br class="svelte-1opdla8">
+				<br class="svelte-1opdla8">
+				<br class="svelte-1opdla8"></div></div></div>
+	<div class="separator c6 svelte-1opdla8"><span class="c5 svelte-1opdla8">一旦你完成了步骤2...</span></div>
+	<br class="svelte-1opdla8">
+	<br class="svelte-1opdla8">
+	<div class="c4 svelte-1opdla8">如果你没有成功进入末地旅游，这里有个替代链接：
+		<span class="Apple-style-span c8 svelte-1opdla8"><a href="https://www.mcbbs.net/thread-968842-1-1.html" target="_blank" class="svelte-1opdla8"><span class="c7 svelte-1opdla8">CLICK HERE</span></a></span></div>
+	<br class="svelte-1opdla8">
+	<br class="svelte-1opdla8">
+	<br class="svelte-1opdla8">
+	<br class="svelte-1opdla8">
+	<br class="svelte-1opdla8">
+	<br class="svelte-1opdla8">
+	<div class="separator c9 svelte-1opdla8"></div>
+	<footer style="text-align: center;" class="svelte-1opdla8">本页面使用全部的CSS和部分HTML代码来自原版freegiftcode，本页面为玩梗网页，请勿当真。<br class="svelte-1opdla8">
+		免费正版礼品码类网站属于诈骗性质，向社交网站发表类似内容可能会导致禁言或禁访，请勿作死。<br class="svelte-1opdla8">
+		参考<a href="https://www.mcbbs.net/thread-1226924-1-1.html" class="svelte-1opdla8">【残叶杂谈】扒一扒所谓“免 费 正 版 礼 品 码”的背后</a></footer>
+</nobr>
+
+
+		<script type="module" data-sveltekit-hydrate="1sinkln">
+		import { start } from "/_app/immutable/start-ab20d7b5.js";
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="1sinkln"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [0, 4],
+				params: {},
+				routeId: "freemutecode"
+			}
+		});
+	</script></div>
+	</body>
 </html>

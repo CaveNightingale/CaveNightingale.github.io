@@ -68,7 +68,7 @@
 <MainContext>
 	<Section>
 		输入用户的UID：
-		<input type="text" bind:value={uidInput} /><button on:click={load}>确定</button>
+		<input type="number" bind:value={uidInput} /><button on:click={load}>确定</button>
 	</Section>
 	{#if renderingUser === 'error'}
 		<Section>
@@ -98,6 +98,13 @@
 		padding-right: 0.4em;
 		padding-top: 0.2em;
 		padding-bottom: 0.2em;
+		outline: none;
+		-moz-appearance: none;
+	}
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button { 
+	    -webkit-appearance: none; 
 	}
 
 	input:focus {
@@ -122,6 +129,7 @@
 		padding: 0px;
 		margin: 0px;
 		background-color: #00000000;
+		outline: none;
 	}
 
 	button:hover {

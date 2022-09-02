@@ -1,9 +1,9 @@
 <script lang="ts">
 	export let title: string;
-	export let background: boolean;
+	export let background: boolean = false;
 	export let parent: string = "/";
 	function back() {
-		open(parent, '_self');
+		open(parent, "_self");
 	}
 </script>
 
