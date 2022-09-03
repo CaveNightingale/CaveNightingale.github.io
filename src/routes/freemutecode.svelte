@@ -1,11 +1,9 @@
 <script lang="ts">
-import MainContext from "$lib/MainContext.svelte";
 
 	import McbbsUserAvatar from "$lib/McbbsUserAvatar.svelte";
-import Nav from "$lib/Nav.svelte";
-import Section from "$lib/Section.svelte";
+	import Nav from "$lib/Nav.svelte";
 </script>
-<Nav title="获取免费的MCBBS禁言代码" />
+<Nav title="获取免费的MCBBS禁言代码" scalable />
 <br /><br />
 <nobr>
 	<div id="top">

@@ -2,6 +2,7 @@
 	export let title: string;
 	export let background: boolean = false;
 	export let parent: string = "/";
+	export let scalable: boolean = false;
 	function back() {
 		open(parent, "_self");
 	}
@@ -9,7 +10,9 @@
 
 <svelte:head>
 	<title>夜莺洞穴 - {title}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	{#if !scalable}
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	{/if}
 </svelte:head>
 
 <div id="topbar">
