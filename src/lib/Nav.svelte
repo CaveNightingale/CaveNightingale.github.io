@@ -42,6 +42,11 @@
 		padding-left: 1em;
 		user-select: none;
 	}
+
+	:global(*) {
+		/* disable the outline on mobile phones*/
+		outline: none;
+	}
 </style>
 {#if background}
 	<div class="klpbg"></div>
