@@ -99,12 +99,12 @@
 		padding-top: 0.2em;
 		padding-bottom: 0.2em;
 		outline: none;
-		-moz-appearance: none;
+		-moz-appearance: textfield;
 	}
 
 	input::-webkit-outer-spin-button,
 	input::-webkit-inner-spin-button { 
-	    -webkit-appearance: none; 
+	    -webkit-appearance: none;
 	}
 
 	input:focus {

@@ -4,12 +4,19 @@
 	</div>
 </div>
 <style>
+	@keyframes hover {
+		from {
+			filter: brightness(1.0);
+		}
+		to {
+			filter: brightness(0.9);
+		}
+	}
 	.outer {
 		width: 100%;
 		height: 2.8em;
 		background-color: white;
 		border-radius: 0.2em;
-		box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 4px 0px;
 		color: black;
 		opacity: 0.9;
 		align-items: center;
@@ -19,6 +26,8 @@
 	}
 	.outer:hover {
 		filter: brightness(0.9);
+		animation-name: hover;
+		animation-duration: 0.4s;
 	}
 	.inner {
 		padding: 1em;
