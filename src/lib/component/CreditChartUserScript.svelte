@@ -2,8 +2,8 @@
 	import Section from "./Section.svelte";
 	import { applyPatch } from "diff";
 	import MenuEntry from "./MenuEntry.svelte";
-	import PlainTextView from "./view/PlainTextView.svelte";
-	import { showPopup } from "./common";
+	import PlainTextView from "../view/PlainTextView.svelte";
+	import { showPopup } from "../common";
 	
 	const BASE_URL = 'https://greasyfork.org/scripts/407846-mcbbs-creditanalysis/code/MCBBS%20CreditAnalysis.user.js';
 	const PATCH_URL = '/assets/creditchart/userscript.patch';

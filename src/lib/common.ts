@@ -1,25 +1,47 @@
-import Popup from "./Popup.svelte"
-const popupList: any[] = [];
-function showPopup(title: string) {
-	const popup = new Popup({
-		target: document.body,
-		props: {
-			title,
-			top: popupList.length
-		}
-	});
-	popupList.push(popup);
-	setTimeout(() => {
-		popup.fadeout();
-		setTimeout(() => popup.$destroy(), 400);
-		let index = popupList.indexOf(popup);
-		popupList.splice(index);
-		for(let i = index; i < popupList.length; i++) {
-			popupList[i].move(i);
-		}
-	}, 1000);
+interface Popup {
+	run: (title: string, content?: string, timeMS?: number, callback?: () => void) => void
+	status: () => 'hide' | 'fadein' | 'fadeout' | 'show';
+}
+let popups: Popup[] = [];
+let queue: (() => void)[] = [];
+
+function providePopup(popup: Popup) {
+	popups.push(popup);
+}
+
+function showPopup(title: string, content?: string, timeMS?: number, callback?: () => void) {
+	if(popups[0].status() == 'hide' && (popups[1].status() == 'hide' || popups[1].status() == 'fadeout')) {
+		popups[0].run(title, content, timeMS, callback);
+	} else if(popups[0].status() == 'fadeout' && popups[1].status() == 'hide') {
+		popups[1].run(title, content, timeMS, callback);
+	} else {
+		queue.push(() => showPopup(title, content, timeMS, callback));
+	}
+}
+
+function notifyNext() {
+	let next = queue.shift();
+	if(next) next();
+}
+
+let root: ((content: any) => void) | null = null; // This is used by root component
+function setRoot(component: any) {
+	if(root != null)
+		throw new Error("There should be no more that one root component per page");
+	root = component;
+}
+
+function openPage(url: string, component: any) {
+	if(root == null)
+		throw new Error("Can't find root component");
+	root(component);
+	history.pushState({}, '', url);
 }
 
 export {
-	showPopup
+	showPopup,
+	providePopup,
+	notifyNext,
+	setRoot,
+	openPage
 }

@@ -37,9 +37,10 @@
 	export let href: (() => void) | string;
 	export let content: string;
 	function handleClick() {
-		if(typeof href === 'string')
+		if(typeof href === 'string') {
 			open(href, '_self');
-		else
+		} else {
 			href();
+		}
 	}
 </script>
