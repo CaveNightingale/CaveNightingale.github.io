@@ -1,11 +1,17 @@
 <script lang="ts">
     import { openPage } from "$lib/common";
 	import McbbsUserAvatar from "$lib/component/McbbsUserAvatar.svelte";
+    import { onDestroy, onMount } from "svelte";
     import PageIndex from "./PageIndex.svelte";
 	export const scalable = true;
 	export const background = false;
 	export const title = "获取免费的MCBBS禁言代码";
 	export const back = () => openPage("/", PageIndex);
+	onMount(() => document.body.style.minWidth = "800px");
+	onDestroy(() => {
+		if(typeof document != "undefined")
+			document.body.style.minWidth = "";
+	});
 </script>
 <br /><br />
 <nobr>
@@ -125,10 +131,6 @@
 </nobr>
 
 <style>
-	:global(body) {
-		min-width: 800px;
-	}
-
 	div.c9 {
 		clear: both;
 		text-align: center;
