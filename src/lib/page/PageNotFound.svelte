@@ -15,7 +15,7 @@
 		'/creditchart/': ['/creditchart', PageCreditChart],
 	};
 	function main() {
-		let target = redirect['/freegiftcode/'];
+		let target = redirect[location.pathname];
 		if(target) {
 			openPage(target[0], target[1]);
 		} else {
