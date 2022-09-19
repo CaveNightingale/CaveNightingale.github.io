@@ -3,7 +3,7 @@
 
 	export let title: string;
 	export let background: boolean = false;
-	export let back: () => void = () => {};
+	export let back: (() => void) | null = () => {};
 	export let scalable: boolean = false;
 </script>
 
@@ -15,7 +15,7 @@
 </svelte:head>
 
 <div id="topbar">
-	<img on:click={() => back ? back() : 0} id="back-button" alt="返回" title="返回" src="assets/icon/parent.svg" />
+	<img on:click={() => back ? back() : 0} id="back-button" class={back ? "" : "empty"} alt="返回" title="返回" src="/assets/icon/parent.svg" />
 	<div id="topbar-title"><b>{title}</b></div>
 	<Popup />
 	<Popup />
@@ -48,6 +48,10 @@
 		height: 1.2em;
 		padding-left: 1em;
 		user-select: none;
+	}
+
+	#back-button.empty {
+		opacity: 0;
 	}
 
 	:global(*) {

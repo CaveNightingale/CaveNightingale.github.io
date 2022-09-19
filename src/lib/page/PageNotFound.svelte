@@ -4,17 +4,18 @@
 	import { onMount } from 'svelte';
     import PageCreditChart from './PageCreditChart.svelte';
     import PageFreeMuteCode from './PageFreeMuteCode.svelte';
+    import PageIndex from './PageIndex.svelte';
 	export const scalable = false;
 	export const background = true;
 	export const title = "找不到页面";
-	export const back = null;
+	export const back = () => openPage("/", PageIndex);
 	const redirect: any = {
 		'/freemutecode/': ['/freemutecode', PageFreeMuteCode],
-		'/freegiftcode/': ['/freemutecode', PageFreeMuteCode],
+		'/freegiftcode/': ['/freemutecode', PageFreeMuteCode], // freegiftcode and freegiftcode.html are handled by static pages
 		'/creditchart/': ['/creditchart', PageCreditChart],
 	};
 	function main() {
-		let target = redirect[location.pathname];
+		let target = redirect['/freegiftcode/'];
 		if(target) {
 			openPage(target[0], target[1]);
 		} else {
@@ -24,7 +25,7 @@
 			}
 		}
 	}
-	onMount(main);
+	onMount(() => setTimeout(main, 0));
 </script>
 <MainContext>
 	<span style="font-size: 100px; color: white; position: relative; font-weight: 1000; user-select: none;">
