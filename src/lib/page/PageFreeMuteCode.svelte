@@ -14,7 +14,7 @@
 	});
 </script>
 <br /><br />
-<nobr>
+<nobr id="main">
 	<div id="top">
 		<h3>获取你的免费MCBBS末地旅游代码！限时供应！</h3>
 	</div>
@@ -338,5 +338,11 @@
 	#mcbbs-icon {
 		float: right;
 		transform: scale(0.75);
+	}
+
+	@media (max-width: 800px) {
+		#main {
+			scale: 0.6;
+		}
 	}
 </style>

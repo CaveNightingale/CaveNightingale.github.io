@@ -4,14 +4,11 @@
 	export let title: string;
 	export let background: boolean = false;
 	export let back: (() => void) | null = () => {};
-	export let scalable: boolean = false;
 </script>
 
 <svelte:head>
 	<title>夜莺洞穴 - {title}</title>
-	{#if !scalable}
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	{/if}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 </svelte:head>
 
 <div id="topbar">

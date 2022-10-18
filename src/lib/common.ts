@@ -2,6 +2,7 @@ interface Popup {
 	run: (title: string, content?: string, timeMS?: number, callback?: () => void) => void
 	status: () => 'hide' | 'fadein' | 'fadeout' | 'show';
 }
+
 let popups: Popup[] = [];
 let queue: (() => void)[] = [];
 
@@ -26,8 +27,6 @@ function notifyNext() {
 
 let root: ((content: any) => void) | null = null; // This is used by root component
 function setRoot(component: any) {
-	if(root != null)
-		throw new Error("There should be no more that one root component per page");
 	root = component;
 }
 

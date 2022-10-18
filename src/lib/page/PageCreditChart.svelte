@@ -13,11 +13,12 @@
 	export const back = () => {
 		if(renderingUser != 'none') {
 			renderingUser = 'none';
+			history.pushState({}, '', '/creditchart');
 		} else {
-			history.pushState({}, '', '/creditchart')
 			openPage('/', PageIndex);
 		}
 	};
+	export const reload = setup;
 	let uidInput: string = '';
 	let renderingUser: any | 'pending' | 'error' | 'none' = 'none';
 	$: {
@@ -52,13 +53,15 @@
 		else
 			return result;
 	}
-	async function load() {
+	async function load(_ignore: any, pushstate: boolean = true) {
 		let uid = parseInt(uidInput);
 		if(isFinite(uid) && uid > 0) {
 			renderingUser = 'pending';
 			try {
 				renderingUser = await getUserInfo(uid);
-				history.pushState({}, '', location.pathname + '?uid=' + uid);
+				if(pushstate) {
+					history.pushState({}, '', location.pathname + '?uid=' + uid);
+				}
 			} catch {
 				renderingUser = 'error';
 			}
@@ -69,7 +72,9 @@
 	function setup() {
 		uidInput = new URLSearchParams(location.search).get('uid') || '';
 		if(uidInput != '')
-			load();
+			load(0, false);
+		else
+			renderingUser = 'none';
 	}
 	onMount(setup);
 </script>
