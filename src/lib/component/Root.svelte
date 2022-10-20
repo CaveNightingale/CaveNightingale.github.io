@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { setRoot } from '$lib/common';
+	import { setRoot } from '$lib/common';
 	import Nav from '$lib/component/Nav.svelte';
-    import PageCreditChart from '$lib/page/PageCreditChart.svelte';
-    import PageFreeMuteCode from '$lib/page/PageFreeMuteCode.svelte';
-    import PageIndex from '$lib/page/PageIndex.svelte';
-    import PageNotFound from '$lib/page/PageNotFound.svelte';
-    import { onMount } from 'svelte';
+	import PageCreditChart from '$lib/page/PageCreditChart.svelte';
+	import PageFreeMuteCode from '$lib/page/PageFreeMuteCode.svelte';
+	import PageIndex from '$lib/page/PageIndex.svelte';
+	import PageNotFound from '$lib/page/PageNotFound.svelte';
+	import { onMount } from 'svelte';
 	export let component: any;
 	let title: string;
 	let background: boolean;

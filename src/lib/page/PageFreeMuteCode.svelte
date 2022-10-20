@@ -66,15 +66,12 @@
 				<br />
 				<div id="socialmedia">
 					<div><!--管理员-->
-						<McbbsUserAvatar uid=3038		name="混乱" />
-						<McbbsUserAvatar uid=3467		name="sjjklh" />
-						<McbbsUserAvatar uid=5367		name="john180" />
-						<McbbsUserAvatar uid=36116		name="magicbear" />
-						<McbbsUserAvatar uid=66971		name="妖梦的舔狗" />
-						<McbbsUserAvatar uid=84901		name="pogox" />
-						<McbbsUserAvatar uid=265600		name="rom718" />
-						<McbbsUserAvatar uid=564746		name="gamerteam" />
-						<McbbsUserAvatar uid=2676420	name="bbsmaster" />
+						<McbbsUserAvatar uid=3467       name="sjjklh" />
+						<McbbsUserAvatar uid=36116      name="magicbear" />
+						<McbbsUserAvatar uid=66971      name="妖梦的舔狗" />
+						<McbbsUserAvatar uid=84256      name="bangbang93" />
+						<McbbsUserAvatar uid=2048697    name="Zapic" />
+						<McbbsUserAvatar uid=2676420    name="bbsmaster" />
 						<br /><!--管理员助理-->
 						<McbbsUserAvatar uid=165947		name="凛" />
 						<McbbsUserAvatar uid=1350847	name="广药" />
@@ -338,11 +335,5 @@
 	#mcbbs-icon {
 		float: right;
 		transform: scale(0.75);
-	}
-
-	@media (max-width: 800px) {
-		#main {
-			scale: 0.6;
-		}
 	}
 </style>
