@@ -9,8 +9,9 @@
 	export const back = () => openPage("/", PageIndex);
 	onMount(() => document.body.style.minWidth = "800px");
 	onDestroy(() => {
-		if(typeof document != "undefined")
+		if (typeof document != "undefined") {
 			document.body.style.minWidth = "";
+		}
 	});
 </script>
 <br /><br />

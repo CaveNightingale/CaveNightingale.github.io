@@ -16,7 +16,7 @@
 	};
 	function main() {
 		let target = redirect[location.pathname];
-		if(target) {
+		if (target) {
 			openPage(target[0], target[1]);
 		} else {
 			let chartData = /^\/creditchart\/([0-9]+)$/.exec(location.pathname);

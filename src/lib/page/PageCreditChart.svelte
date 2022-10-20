@@ -38,28 +38,29 @@
 
 	async function getUserInfo(uid: number): Promise<any> {
 		let result, retryCount = 0;
-		while(!result && (retryCount++ < 3)){ // AutoRetry
+		while (!result && (retryCount++ < 3)){ // AutoRetry
 			try {
 				result = await (await fetch(FUNCTION_URL + uid)).json();
 			} catch {
 			}
 		}
-		if(!result)
+		if (!result) {
 			throw new Error('Cannot connect to proxy');
-		else if(result.error)
+		} else if(result.error) {
 			throw new Error(result.error);
-		else if(!result.username)
+		} else if(!result.username) {
 			throw new Error("Function returns improper data");
-		else
+		} else {
 			return result;
+		}
 	}
 	async function load(_ignore: any, pushstate: boolean = true) {
 		let uid = parseInt(uidInput);
-		if(isFinite(uid) && uid > 0) {
+		if (isFinite(uid) && uid > 0) {
 			renderingUser = 'pending';
 			try {
 				renderingUser = await getUserInfo(uid);
-				if(pushstate) {
+				if (pushstate) {
 					history.pushState({}, '', location.pathname + '?uid=' + uid);
 				}
 			} catch {
@@ -71,10 +72,11 @@
 	}
 	function setup() {
 		uidInput = new URLSearchParams(location.search).get('uid') || '';
-		if(uidInput != '')
+		if (uidInput != '') {
 			load(0, false);
-		else
+		} else {
 			renderingUser = 'none';
+		}
 	}
 	onMount(setup);
 </script>

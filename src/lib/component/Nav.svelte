@@ -12,7 +12,7 @@
 </svelte:head>
 
 <div id="topbar">
-	<img on:click={() => back ? back() : 0} id="back-button" class={back ? "" : "empty"} alt="返回" title="返回" src="/assets/icon/parent.svg" />
+	<img on:click={() => back ? back() : 0} id="back-button" class:empty={!back} alt="返回" title="返回" src="/assets/icon/parent.svg" />
 	<div id="topbar-title"><b>{title}</b></div>
 	<Popup />
 	<Popup />
@@ -72,4 +72,4 @@
 		display: none;
 	}
 </style>
-<div id="klpbg" class={background ? "" : "hide"}></div>
+<div id="klpbg" class:hide={!background}></div>

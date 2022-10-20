@@ -1,8 +1,8 @@
 <script lang="ts">
 	import AbstractTextView from "./class/AbstractTextView.svelte";
-import KeywordContantElement from "./element/KeywordContantElement.svelte";
+	import KeywordContantElement from "./element/KeywordContantElement.svelte";
 	import NumbericConstantElement from "./element/NumbericConstantElement.svelte";
-import ObjectContantElement from "./element/ObjectContantElement.svelte";
+	import ObjectContantElement from "./element/ObjectContantElement.svelte";
 	import PlainTextElement from "./element/PlainTextElement.svelte";
 	import SymbolNameElement from "./element/SymbolNameElement.svelte";
 

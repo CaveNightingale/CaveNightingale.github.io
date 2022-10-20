@@ -11,7 +11,7 @@ function providePopup(popup: Popup) {
 }
 
 function showPopup(title: string, content?: string, timeMS?: number, callback?: () => void) {
-	if(popups[0].status() == 'hide' && (popups[1].status() == 'hide' || popups[1].status() == 'fadeout')) {
+	if (popups[0].status() == 'hide' && (popups[1].status() == 'hide' || popups[1].status() == 'fadeout')) {
 		popups[0].run(title, content, timeMS, callback);
 	} else if(popups[0].status() == 'fadeout' && popups[1].status() == 'hide') {
 		popups[1].run(title, content, timeMS, callback);
@@ -31,8 +31,9 @@ function setRoot(component: any) {
 }
 
 function openPage(url: string, component: any) {
-	if(root == null)
+	if (root == null) {
 		throw new Error("Can't find root component");
+	}
 	root(component);
 	history.pushState({}, '', url);
 }

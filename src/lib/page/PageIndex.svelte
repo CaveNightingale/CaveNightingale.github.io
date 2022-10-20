@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { openPage, showPopup } from '$lib/common';
+    import { openPage } from '$lib/common';
 	import Footer from '$lib/component/Footer.svelte';
 	import MainContext from '$lib/component/MainContext.svelte';
 	import MenuEntry from '$lib/component/MenuEntry.svelte';

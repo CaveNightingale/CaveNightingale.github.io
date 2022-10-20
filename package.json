@@ -23,6 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"diff": "^5.1.0"
+		"diff": "^5.1.0",
+		"html-escaper": "^3.0.3"
 	}
 }

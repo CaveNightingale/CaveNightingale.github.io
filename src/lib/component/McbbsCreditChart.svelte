@@ -44,7 +44,7 @@
 		totalCredit = renderingUser.credits['积分'];
 		let creditsTemp: any = {};
 		let sum = 0;
-		for(let dt of creditTable) {
+		for (let dt of creditTable) {
 			let n;
 			switch(dt[1]) {
 				case '发帖数':
@@ -81,15 +81,17 @@
 			interval = 0;
 		}
 		expandProgress += 0.03;
-		if(expandProgress >= 1)
+		if (expandProgress >= 1) {
 			expandProgress = 1;
+		}
 		let ctx = canvas.getContext('2d')!;
 		let sum = 0;
 		let xy = canvasWidth / 2;
 		ctx.clearRect(0, 0, canvasWidth, canvasWidth);
-		for(let [color, name, weight] of creditTable) {
-			if(weight == 0 || credits[name] == 0) // Skip unused
+		for (let [color, name, weight] of creditTable) {
+			if (weight == 0 || credits[name] == 0) { // Skip unused
 				continue;
+			}
 			ctx.fillStyle = color;
 			ctx.strokeStyle = color;
 			ctx.lineWidth = 2;
@@ -97,11 +99,13 @@
 			let absTotal = Math.abs(totalCredit); // make sure negative credit has a negtive angle
 			let startA = 2 * Math.PI * (sum / absTotal * expandProgress - 1 / 4);
 			let endA = 2 * Math.PI * ((sum += credits[name] * weight) / absTotal * expandProgress - 1 / 4);
-			if(startA > endA)
+			if (startA > endA) {
 				[startA, endA] = [endA, startA];// handle negetive credits
+			}
 			let midA = (startA + endA) / 2;
-			if(updateSelectedArea && selectedAngle! > startA && selectedAngle! < endA)
+			if (updateSelectedArea && selectedAngle! > startA && selectedAngle! < endA) {
 				selectedArea = name;
+			}
 			let r = name === selectedArea ? canvasWidth / 2.7 : canvasWidth / 3.0;// tsc bug
 			let lineEndX = xy + Math.cos(midA) * canvasWidth / 2.5;
 			let lineEndY = xy + Math.sin(midA) * canvasWidth / 2.5;
@@ -114,7 +118,7 @@
 			ctx.moveTo(xy, xy);
 			ctx.lineTo(lineEndX, lineEndY);
 			ctx.stroke();
-			if(simplifyA(midA) > Math.PI / 2) {
+			if (simplifyA(midA) > Math.PI / 2) {
 				let x = lineEndX - (canvasWidth / 10);
 				ctx.lineTo(x, lineEndY);
 				ctx.fillText(name + credits[name], x, lineEndY - canvasWidth / 120);
@@ -133,7 +137,7 @@
 		let xy = canvasWidth / 2;
 		let x = e.offsetX - xy, y = e.offsetY - xy;
 		let len = (x ** 2 + y ** 2) ** 0.5;
-		if(len <= canvasWidth / 2.6) {
+		if (len <= canvasWidth / 2.6) {
 			let cosA = x / len, sinA = y / len;
 			selectedAngle = sinA >= 0 ? Math.acos(cosA) : 2 * Math.PI - Math.acos(cosA);
 			selectedAngle = selectedAngle >= 3 * Math.PI / 2 ? selectedAngle - 2 * Math.PI : selectedAngle;
@@ -148,21 +152,23 @@
 		render();
 	}
 	function rank(amount: number, data: number[]) {
-		if(amount >= data[0])
+		if (amount >= data[0]) {
 			return 'A';
-		else if(amount >= data[1])
+		} else if (amount >= data[1]) {
 			return 'B';
-		else if(amount >= data[2])
+		} else if (amount >= data[2]) {
 			return 'C';
-		else if(amount >= 0)
+		} else if (amount >= 0) {
 			return 'D';
-		else
+		} else {
 			return 'E';
+		}
 	}
 	function simplifyA(a: number) { // make sure -pi/2 <= a < 3pi/2 
 		let tmp = (a + Math.PI / 2) % (Math.PI * 2);
-		if(tmp < 0)
+		if (tmp < 0) {
 			tmp += Math.PI * 2;
+		}
 		return tmp - Math.PI / 2; 
 	}
 	onMount(setup);

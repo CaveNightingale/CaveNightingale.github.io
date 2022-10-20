@@ -9,7 +9,7 @@
 	let content0: string;
 	let status: 'hide' | 'fadein' | 'fadeout' | 'show' = "hide";
 	function show(title: string, content: string = "", timeMS: number = 2000, callback: () => void = () => undefined) {
-		if(status != "hide") {
+		if (status != "hide") {
 			console.error("Too many popup");
 			return;
 		}

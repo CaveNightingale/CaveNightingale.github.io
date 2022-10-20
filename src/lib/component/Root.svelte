@@ -24,9 +24,9 @@
 	});
 	function onPopState(event: PopStateEvent) {
 		let target = URL_TABLE[location.pathname]
-		if(target) {
+		if (target) {
 			changeContent(target);
-			if(reload) {
+			if (reload) {
 				reload();
 			}
 		} else {
