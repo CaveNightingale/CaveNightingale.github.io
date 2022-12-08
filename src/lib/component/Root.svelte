@@ -22,7 +22,7 @@
 	onMount(() => {
 		setRoot((component: any) => changeContent(component));
 	});
-	function onPopState() {
+	function onPopState(event: PopStateEvent) {
 		let target = URL_TABLE[location.pathname]
 		if (target) {
 			changeContent(target);
