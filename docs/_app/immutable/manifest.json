@@ -1,10 +1,10 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-c3b03a3a.js",
+    "file": "start-ce657172.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-705c4fc5.js"
+      "_index-a6551832.js"
     ],
     "dynamicImports": [
       ".svelte-kit/runtime/components/layout.svelte",
@@ -13,101 +13,113 @@
       "src/routes/creditchart.svelte",
       "src/routes/freemutecode.svelte",
       "src/routes/index.svelte",
+      "src/routes/turingtest.svelte",
       "src/routes/uitest.svelte"
     ]
   },
   ".svelte-kit/runtime/components/layout.svelte": {
-    "file": "layout.svelte-60760351.js",
+    "file": "layout.svelte-00b2f173.js",
     "src": ".svelte-kit/runtime/components/layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-705c4fc5.js"
+      "_index-a6551832.js"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-0b27f808.js",
+    "file": "error.svelte-af653231.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-705c4fc5.js"
+      "_index-a6551832.js"
     ]
   },
   "src/routes/404.svelte": {
-    "file": "pages/404.svelte-6ff1c326.js",
+    "file": "pages/404.svelte-4c8e150f.js",
     "src": "src/routes/404.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-705c4fc5.js",
-      "_Root-a18499cc.js",
-      "_MainContext-64a3cbb7.js"
+      "_index-a6551832.js",
+      "_Root-3d581fd2.js",
+      "_MainContext-6617568b.js"
     ]
   },
   "src/routes/creditchart.svelte": {
-    "file": "pages/creditchart.svelte-73fd62a6.js",
+    "file": "pages/creditchart.svelte-c19e42f2.js",
     "src": "src/routes/creditchart.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-705c4fc5.js",
-      "_Root-a18499cc.js",
-      "_MainContext-64a3cbb7.js"
+      "_index-a6551832.js",
+      "_Root-3d581fd2.js",
+      "_MainContext-6617568b.js"
     ]
   },
   "src/routes/freemutecode.svelte": {
-    "file": "pages/freemutecode.svelte-5d0f15db.js",
+    "file": "pages/freemutecode.svelte-ca7dd81c.js",
     "src": "src/routes/freemutecode.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-705c4fc5.js",
-      "_Root-a18499cc.js",
-      "_MainContext-64a3cbb7.js"
+      "_index-a6551832.js",
+      "_Root-3d581fd2.js",
+      "_MainContext-6617568b.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-5256beb4.js",
+    "file": "pages/index.svelte-6af8c93c.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-705c4fc5.js",
-      "_Root-a18499cc.js",
-      "_MainContext-64a3cbb7.js"
+      "_index-a6551832.js",
+      "_Root-3d581fd2.js",
+      "_MainContext-6617568b.js"
+    ]
+  },
+  "src/routes/turingtest.svelte": {
+    "file": "pages/turingtest.svelte-8f955b15.js",
+    "src": "src/routes/turingtest.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a6551832.js",
+      "_Root-3d581fd2.js",
+      "_MainContext-6617568b.js"
     ]
   },
   "src/routes/uitest.svelte": {
-    "file": "pages/uitest.svelte-73bbb4e1.js",
+    "file": "pages/uitest.svelte-3479fced.js",
     "src": "src/routes/uitest.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-705c4fc5.js",
-      "_MainContext-64a3cbb7.js"
+      "_index-a6551832.js",
+      "_MainContext-6617568b.js"
     ],
     "css": [
       "assets/pages/uitest.svelte-42dd186c.css"
     ]
   },
-  "_index-705c4fc5.js": {
-    "file": "chunks/index-705c4fc5.js"
+  "_index-a6551832.js": {
+    "file": "chunks/index-a6551832.js"
   },
-  "_Root-a18499cc.js": {
-    "file": "chunks/Root-a18499cc.js",
+  "_Root-3d581fd2.js": {
+    "file": "chunks/Root-3d581fd2.js",
     "imports": [
-      "_index-705c4fc5.js",
-      "_MainContext-64a3cbb7.js"
+      "_index-a6551832.js",
+      "_MainContext-6617568b.js"
     ],
     "css": [
-      "assets/Root-a0081092.css"
+      "assets/Root-51b205f1.css"
     ]
   },
-  "_MainContext-64a3cbb7.js": {
-    "file": "chunks/MainContext-64a3cbb7.js",
+  "_MainContext-6617568b.js": {
+    "file": "chunks/MainContext-6617568b.js",
     "imports": [
-      "_index-705c4fc5.js"
+      "_index-a6551832.js"
     ],
     "css": [
       "assets/MainContext-1eccf8a5.css"

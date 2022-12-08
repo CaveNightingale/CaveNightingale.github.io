@@ -5,6 +5,7 @@
 	import PageFreeMuteCode from '$lib/page/PageFreeMuteCode.svelte';
 	import PageIndex from '$lib/page/PageIndex.svelte';
 	import PageNotFound from '$lib/page/PageNotFound.svelte';
+    import PageTuringTestForChatGpt from '$lib/page/PageTuringTestForChatGPT.svelte';
 	import { onMount } from 'svelte';
 	export let component: any;
 	let title: string;
@@ -14,7 +15,8 @@
 	let URL_TABLE: any = {
 		'/': PageIndex,
 		'/creditchart': PageCreditChart,
-		'/freemutecode': PageFreeMuteCode
+		'/freemutecode': PageFreeMuteCode,
+		'/turingtest': PageTuringTestForChatGpt
 	};
 	export function changeContent(content: any) {
 		component = content;
