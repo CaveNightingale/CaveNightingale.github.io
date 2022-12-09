@@ -5,7 +5,7 @@
 	import PageFreeMuteCode from '$lib/page/PageFreeMuteCode.svelte';
 	import PageIndex from '$lib/page/PageIndex.svelte';
 	import PageNotFound from '$lib/page/PageNotFound.svelte';
-    import PageTuringTestForChatGpt from '$lib/page/PageTuringTestForChatGPT.svelte';
+    import PageTestForChatGpt from '$lib/page/PageTestForChatGPT.svelte';
 	import { onMount } from 'svelte';
 	export let component: any;
 	let title: string;
@@ -16,7 +16,7 @@
 		'/': PageIndex,
 		'/creditchart': PageCreditChart,
 		'/freemutecode': PageFreeMuteCode,
-		'/turingtest': PageTuringTestForChatGpt
+		'/chatgpttest': PageTestForChatGpt
 	};
 	export function changeContent(content: any) {
 		component = content;

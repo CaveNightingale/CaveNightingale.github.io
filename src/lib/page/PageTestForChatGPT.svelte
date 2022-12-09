@@ -11,20 +11,20 @@
     import PageIndex from "./PageIndex.svelte";
     export const scalable = false;
     export const background = true;
-    export const title = "ChatGPT图灵测试记录";
+    export const title = "ChatGPT测试记录";
     export const back = () => openPage("/", PageIndex);
 </script>
 
 <MainContext>
     <Section
-        >本页面记录了2022年12月8日对ChatGPT进行的图灵测试。看看前沿AI能多大程度上影响计算机教育。<br
+        >本页面记录了2022年12月8日对ChatGPT进行的测试。看看前沿AI能多大程度上影响计算机教育。<br
         />
         太长不看版：<br />
         前四组测试为即兴发挥的记忆性基础知识问题，难度适中，ChatGPT回答得非常好<br
         />
         后四组测试含有一道即兴发挥的函数设计题，以及三道CF最低难度的程序设计题，ChatGPT基本就没答对的<br
         />
-        结论：ChatGPT对信息学基础知识的掌握已经基本达到人类水平，但程序设计仍然是区分ChatGPT与人类程序员的有效方法。
+        结论：ChatGPT对信息学基础知识的掌握已经基本达到人类水平，但几乎没有程序设计能力。
     </Section>
     <Section>
         <h2>测试点1：基础知识</h2>
@@ -62,7 +62,11 @@
         is important to free memory that is no longer needed in order to avoid
         memory leaks.<br />
         <Incorrect />
-        <Warning>这个回答得还可以，当时没看出来是错的，后来整理的时候发现不对</Warning>
+        <Warning
+            >这个回答得还可以，当时没看出来是错的，后来整理的时候发现不对。<br
+            />
+            其实这个测试点有点偏（非GNU/Linux用户基本不用glibc，而且封装思想要求我们不假设别人的库是怎么实现的），人类程序员答错也不奇怪。</Warning
+        >
     </Section>
     <Section>
         <h2>测试点2：基础知识</h2>
@@ -635,7 +639,8 @@ for _ in range(num_test_cases):
         <Incorrect />
         <Human>CaveNightingale</Human>
         Please output whether the array can be sorted into non-descending order using
-        the given operation. I'm not asking if the array is already sorted.<br />
+        the given operation. I'm not asking if the array is already sorted.<br
+        />
         <Machine>ChatGPT</Machine>
         To determine whether a given permutation of the numbers 1 through n can be
         sorted into non-descending order using the operations specified in the problem
@@ -899,7 +904,7 @@ print the absolute difference between sum1 and sum2
         We can implement this solution in any programming language of our choice.
         <Correct />
         <Warning
-            >ChatGPT向人类测试者询问算法，并仅在测试人给出核心算法的情况下正确写出代码，测试不通过</Warning
+            >ChatGPT向人类询问算法，并仅在测试人给出核心算法的情况下正确写出代码，测试不通过</Warning
         >
     </Section>
 </MainContext>

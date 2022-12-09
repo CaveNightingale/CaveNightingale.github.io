@@ -5,7 +5,7 @@
 	import MenuEntry from '$lib/component/MenuEntry.svelte';
     import PageCreditChart from './PageCreditChart.svelte';
     import PageFreeMuteCode from './PageFreeMuteCode.svelte';
-    import PageTuringTestForChatGpt from './PageTuringTestForChatGPT.svelte';
+    import PageTestForChatGpt from './PageTestForChatGPT.svelte';
 	export const scalable = false;
 	export const background = true;
 	export const title = "目录";
@@ -14,7 +14,7 @@
 <MainContext>
 	<MenuEntry href={() => openPage("/freemutecode", PageFreeMuteCode)} content="免费禁言代码" />
 	<MenuEntry href={() => openPage("/creditchart", PageCreditChart)} content="MCBBS积分分析" />
-	<MenuEntry href={() => openPage("/turingtest", PageTuringTestForChatGpt)} content="ChatGPT图灵测试记录" />
+	<MenuEntry href={() => openPage("/chatgpt", PageTestForChatGpt)} content="ChatGPT测试记录" />
 	<Footer>
 		本网站是洞穴夜莺的整活网站，背景图片来自<a href="https://klpbbs.com" target="_blank" style="color: white;">klpbbs.com</a>，freemutecode页面中css（assets/freemutecode/style.css）来自freegiftcode，其余内容以CC-0协议开源于<a href="https://github.com/CaveNightingale/CaveNightingale.github.io" target="_blank" style="color: white;">github</a>。
 	</Footer>
