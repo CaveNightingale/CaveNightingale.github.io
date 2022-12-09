@@ -62,6 +62,7 @@
         is important to free memory that is no longer needed in order to avoid
         memory leaks.<br />
         <Incorrect />
+        <Warning>这个回答得还可以，当时没看出来是错的，后来整理的时候发现不对</Warning>
     </Section>
     <Section>
         <h2>测试点2：基础知识</h2>
