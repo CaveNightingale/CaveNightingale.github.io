@@ -499,7 +499,7 @@ for _ in range(num_test_cases):
         for the binary string and prints the result.<br />
         <Incorrect />
         <Human>CaveNightingale</Human>
-        Please notice the definition of substring.
+        Please notice the definition of substring.<br />
         <Machine>ChatGPT</Machine>
         Conversation lost.
         <Warning>错误两次后结束会话，测试不通过</Warning>
@@ -635,7 +635,7 @@ for _ in range(num_test_cases):
         <Incorrect />
         <Human>CaveNightingale</Human>
         Please output whether the array can be sorted into non-descending order using
-        the given operation. I'm not asking if the array is already sorted.
+        the given operation. I'm not asking if the array is already sorted.<br />
         <Machine>ChatGPT</Machine>
         To determine whether a given permutation of the numbers 1 through n can be
         sorted into non-descending order using the operations specified in the problem
