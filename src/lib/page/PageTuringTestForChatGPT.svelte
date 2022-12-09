@@ -61,7 +61,7 @@
         the block of memory and marks it as available for future allocation. It
         is important to free memory that is no longer needed in order to avoid
         memory leaks.<br />
-        <Correct />
+        <Incorrect />
     </Section>
     <Section>
         <h2>测试点2：基础知识</h2>
