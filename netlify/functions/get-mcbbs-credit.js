@@ -1,4 +1,14 @@
 const https = require('https');
+const html_escape_table = {
+	"&ensp;": " ",
+	"&emsp;": " ",
+	"&nbsp;": " ",
+	"&lt;": "<",
+	"&gt;": ">",
+	"&amp;": "&",
+	"&quot;": "\"",
+	"&apos;": "'",
+}
 const creditRegex = /<li><em>积分<\/em>(-?[0-9]+)<\/li><li><em>人气<\/em>(-?[0-9]+) 点<\/li>\n<li><em>金粒<\/em>(-?[0-9]+) 粒<\/li>\n<li><em>金锭\[已弃用\]<\/em>(-?[0-9]+) 块<\/li>\n<li><em>宝石<\/em>(-?[0-9]+) 颗<\/li>\n<li><em>下界之星<\/em>(-?[0-9]+) 枚<\/li>\n<li><em>贡献<\/em>(-?[0-9]+) 份<\/li>\n<li><em>爱心<\/em>(-?[0-9]+) 心<\/li>\n<li><em>钻石<\/em>(-?[0-9]+) 颗<\/li>/;
 const creditList = ['积分', '人气', '金粒', '金锭', '宝石', '下界之心', '贡献', '爱心', '钻石'];
 const usernameRegex = /<h2 class="mt">\n([\s\S]+?)<\/h2>/;
@@ -29,7 +39,9 @@ exports.handler = function (event, context) {
 				msg.on('end', () => {
 					let usernameParsed = usernameRegex.exec(data);
 					if (usernameParsed)
-						result.username = usernameParsed[1];
+						result.username = usernameParsed[1]
+							.replace(/&#([0-9]+);/g, (match, p1) => String.fromCharCode(parseInt(p1)))
+							.replace(/&([a-z]+);/g, (match, p1) => html_escape_table[match]);
 					let creditParsed = creditRegex.exec(data);
 					if (creditParsed) {
 						let credits = {};
