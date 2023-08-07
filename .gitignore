@@ -6,4 +6,5 @@ node_modules
 .env
 .env.*
 !.env.example
-/exclude
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

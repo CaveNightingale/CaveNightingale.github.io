@@ -188,7 +188,7 @@
 				{/each}
 			{/if}
 		)
-		<div class="lines" on:click={() => selectArea('')}>
+		<div class="lines" on:click={() => selectArea('')} on:keypress={() => {}}>
 			<div class="color"></div>
 			<div class="name">总积分</div>
 			<div class="count">{totalCredit}</div>
@@ -196,7 +196,7 @@
 			<div class="rank">{rank(totalCredit, totalCreditLevel)}</div>
 		</div>
 		{#each creditTable as credit}
-			<div class="lines" style={selectedArea === credit[1] ? "background: #d8d8d8;" : ""} on:click={() => selectArea(credit[1])}>
+			<div class="lines" style={selectedArea === credit[1] ? "background: #d8d8d8;" : ""} on:click={() => selectArea(credit[1])} on:keypress={() => {}}>
 				<div class="color">
 					<div class="color-example" style="background-color: {credit[0]};"></div>
 				</div>
@@ -217,7 +217,7 @@
 	</div>
 </Section>
 <Section>
-	<div class="canvas-parent" bind:this={canvasParent} on:click={handleCanvasClick}>
+	<div class="canvas-parent" bind:this={canvasParent} on:click={handleCanvasClick} on:keypress={() => {}}>
 		<canvas width={canvasWidth} height={canvasWidth} bind:this={canvas}>
 			请更新浏览器！
 		</canvas>

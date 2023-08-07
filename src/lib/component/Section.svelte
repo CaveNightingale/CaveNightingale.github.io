@@ -9,7 +9,7 @@
 	.outer {
 		width: 100%;
 		background-color: white;
-		border-radius: 0.2em;
+		border-radius: 5px;
 		color: black;
 		opacity: 0.9;
 		align-items: center;

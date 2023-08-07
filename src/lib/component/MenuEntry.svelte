@@ -1,4 +1,4 @@
-<div class="outer" on:click={handleClick}>
+<div class="outer" on:click={handleClick} on:keypress={() => {}}>
 	<div class="inner">
 		{content}
 	</div>

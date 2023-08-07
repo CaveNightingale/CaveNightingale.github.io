@@ -3,16 +3,18 @@
 
 	export let title: string;
 	export let background: boolean = false;
-	export let back: (() => void) | null = () => {};
+	export let back: string | (() => void) | null;
+	function back0() {
+		if (typeof back == 'string') {
+			open(back, '_self');
+		} else if (typeof back == 'function') {
+			back();
+		}
+	}
 </script>
 
-<svelte:head>
-	<title>夜莺洞穴 - {title}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-</svelte:head>
-
 <div id="topbar">
-	<img on:click={() => back ? back() : 0} id="back-button" class:empty={!back} alt="返回" title="返回" src="/assets/icon/parent.svg" />
+	<img on:click={back0} on:keypress={back0} id="back-button" class:empty={!back} alt="返回" title="返回" src="/assets/icon/parent.svg" hidden={!back} />
 	<div id="topbar-title"><b>{title}</b></div>
 	<Popup />
 	<Popup />
@@ -25,12 +27,12 @@
 		border: 0px;
 		width: 100%;
 		height: 2.4em;
-		background-color: #f7a9c3;
+		background-color: #65a1ee;
 		display: flex;
 		align-items: center;
 		-webkit-user-drag: none;
 		z-index: 1000;
-		border-bottom: 0.1em;
+		border-bottom: 2px;
 		border-style: solid;
 		border-color: #a37a877f;
 	}

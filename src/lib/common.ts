@@ -25,23 +25,8 @@ function notifyNext() {
 	if(next) next();
 }
 
-let root: ((content: any) => void) | null = null; // This is used by root component
-function setRoot(component: any) {
-	root = component;
-}
-
-function openPage(url: string, component: any) {
-	if (root == null) {
-		throw new Error("Can't find root component");
-	}
-	root(component);
-	history.pushState({}, '', url);
-}
-
 export {
 	showPopup,
 	providePopup,
-	notifyNext,
-	setRoot,
-	openPage
+	notifyNext
 }
