@@ -1,10 +1,11 @@
 <div class="outer">
 	<div class="middle">
 		<div class="inner">
-			<slot></slot>
+			<slot />
 		</div>
 	</div>
 </div>
+
 <style>
 	.outer {
 		width: 100%;

@@ -1,20 +1,16 @@
-<svelte:head>
-	<title>夜莺洞穴 - ChatGPT测试记录</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-</svelte:head>
 <script>
-	import Human from "../../lib/component/Human.svelte";
-	import MainContext from "../../lib/component/MainContext.svelte";
-	import Section from "../../lib/component/Section.svelte";
-	import Machine from "../../lib/component/Machine.svelte";
-	import Correct from "../../lib/component/Correct.svelte";
-	import Incorrect from "../../lib/component/Incorrect.svelte";
-	import PlainTextView from "../../lib/view/PlainTextView.svelte";
-	import Warning from "../../lib/component/Warning.svelte";
-    import Nav from "../../lib/component/Nav.svelte";
-	export const title = "ChatGPT测试记录";
+	import Human from "$lib/component/Human.svelte";
+	import MainContext from "$lib/component/MainContext.svelte";
+	import Section from "$lib/component/Section.svelte";
+	import Machine from "$lib/component/Machine.svelte";
+	import Correct from "$lib/component/Correct.svelte";
+	import Incorrect from "$lib/component/Incorrect.svelte";
+	import PlainTextView from "$lib/view/PlainTextView.svelte";
+	import Warning from "$lib/component/Warning.svelte";
+	import { pageInfo } from "$lib/common";
+	pageInfo("ChatGPT测试记录", "/");
 </script>
-<Nav title="ChatGPT测试记录" back="/" background={true}/>
+
 <MainContext>
 	<Section
 		>本页面记录了2022年12月8日对ChatGPT进行的测试。看看前沿AI能多大程度上影响计算机教育。<br

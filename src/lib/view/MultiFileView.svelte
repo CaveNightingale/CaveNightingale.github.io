@@ -1,15 +1,28 @@
 <script lang="ts">
-	export let data: { name: string, view: any, data: any}[];
+	export let data: { name: string; view: any; data: any }[];
 	export let selected: number = 0;
 </script>
+
 <div class="top-bar">
 	{#each data as entry, i}
-		<div class="tab {selected == i ? 'tab-selected' : ''}" title={entry.name} on:click={() => { selected = i; }}>{entry.name}</div>
+		<div
+			class="tab {selected == i ? 'tab-selected' : ''}"
+			title={entry.name}
+			on:click={() => {
+				selected = i;
+			}}
+			on:keypress={() => {
+				selected = i;
+			}}
+		>
+			{entry.name}
+		</div>
 	{/each}
 </div>
 {#if data[selected]}
-	<svelte:component this={data[selected].view} data={data[selected].data}/>
+	<svelte:component this={data[selected].view} data={data[selected].data} />
 {/if}
+
 <style>
 	.tab {
 		font-family: monospace;

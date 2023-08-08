@@ -1,6 +1,7 @@
 <footer>
-	<slot></slot>
+	<slot />
 </footer>
+
 <style>
 	footer {
 		width: 100%;

@@ -1,24 +1,35 @@
 <script lang="ts">
-    import Popup from "./Popup.svelte";
+	import Popup from "./Popup.svelte";
 
 	export let title: string;
 	export let background: boolean = false;
 	export let back: string | (() => void) | null;
 	function back0() {
-		if (typeof back == 'string') {
-			open(back, '_self');
-		} else if (typeof back == 'function') {
+		if (typeof back == "string") {
+			open(back, "_self");
+		} else if (typeof back == "function") {
 			back();
 		}
 	}
 </script>
 
 <div id="topbar">
-	<img on:click={back0} on:keypress={back0} id="back-button" class:empty={!back} alt="返回" title="返回" src="/assets/icon/parent.svg" hidden={!back} />
+	<img
+		on:click={back0}
+		on:keypress={back0}
+		id="back-button"
+		class:empty={!back}
+		alt="返回"
+		title="返回"
+		src="/assets/icon/parent.svg"
+		hidden={!back}
+	/>
 	<div id="topbar-title"><b>{title}</b></div>
 	<Popup />
 	<Popup />
 </div>
+<div id="klpbg" class:hide={!background} />
+
 <style>
 	#topbar {
 		position: fixed;
@@ -57,7 +68,7 @@
 		/* disable the outline on mobile phones*/
 		outline: none;
 	}
-	
+
 	#klpbg {
 		background: url(https://api.klpbbs.com/api/img/acg/) no-repeat;
 		background-size: cover;
@@ -74,4 +85,3 @@
 		display: none;
 	}
 </style>
-<div id="klpbg" class:hide={!background}></div>

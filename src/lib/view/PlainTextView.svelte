@@ -5,7 +5,10 @@
 	export let data: string;
 	$: content = prepare(data);
 	function prepare(data: string) {
-		return data.split('\n').map(text => ([{ text, type: PlainTextElement }]));
+		return data
+			.split("\n")
+			.map((text) => [{ text, type: PlainTextElement }]);
 	}
 </script>
-<AbstractTextView {content}/>
+
+<AbstractTextView {content} />

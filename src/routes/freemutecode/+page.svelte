@@ -1,11 +1,9 @@
-<svelte:head>
-	<title>夜莺洞穴 - 免费禁言代码</title>
-</svelte:head>
 <script lang="ts">
-	import McbbsUserAvatar from "../../lib/component/McbbsUserAvatar.svelte";
-	import Nav from "../../lib/component/Nav.svelte";
+	import { pageInfo } from "$lib/common";
+	import McbbsUserAvatar from "$lib/component/McbbsUserAvatar.svelte";
+	pageInfo("免费禁言代码", "/", false, true);
 </script>
-<Nav title="免费禁言代码" back="/" />
+
 <br /><br />
 <nobr id="main">
 	<div id="top">
@@ -55,32 +53,33 @@
 			<div class="c4" id="Features">
 				<h4>按照下面的简单步骤来申请你的免费MCBBS禁言代码：</h4>
 				<br />
-				<span class="c1">Step 1: 点击下面按钮中的两个 &amp; 确认</span>:<br />
+				<span class="c1">Step 1: 点击下面按钮中的两个 &amp; 确认</span
+				>:<br />
 				<br />
 				<div id="socialmedia">
-					<div><!--管理员-->
-						<McbbsUserAvatar uid=3467       name="sjjklh" />
-						<McbbsUserAvatar uid=36116      name="magicbear" />
-						<McbbsUserAvatar uid=66971      name="妖梦的舔狗" />
-						<McbbsUserAvatar uid=84256      name="bangbang93" />
-						<McbbsUserAvatar uid=2048697    name="Zapic" />
-						<McbbsUserAvatar uid=2676420    name="bbsmaster" />
+					<div>
+						<!--管理员-->
+						<McbbsUserAvatar uid="3467" name="sjjklh" />
+						<McbbsUserAvatar uid="36116" name="magicbear" />
+						<McbbsUserAvatar uid="66971" name="妖梦的舔狗" />
+						<McbbsUserAvatar uid="84256" name="bangbang93" />
+						<McbbsUserAvatar uid="2048697" name="Zapic" />
+						<McbbsUserAvatar uid="2676420" name="bbsmaster" />
 						<br /><!--管理员助理-->
-						<McbbsUserAvatar uid=165947		name="凛" />
-						<McbbsUserAvatar uid=1350847	name="广药" />
-						<McbbsUserAvatar uid=2153967	name="SHEEP_REALMS" />
-						<McbbsUserAvatar uid=2999970	name="声名我主宰" />
+						<McbbsUserAvatar uid="165947" name="凛" />
+						<McbbsUserAvatar uid="1350847" name="广药" />
+						<McbbsUserAvatar uid="2153967" name="SHEEP_REALMS" />
+						<McbbsUserAvatar uid="2999970" name="声名我主宰" />
 					</div>
 					<br />
 					<br />
-					<span class="c1">Step 2: 把这个消息发个三个不同的版主。</span><br />
+					<span class="c1"
+						>Step 2: 把这个消息发个三个不同的版主。</span
+					><br />
 					<br />
 					<p />
 					<div id="comment">
-						<textarea
-							id="comment"
-							rows="4"
-							cols="60"
+						<textarea id="comment" rows="4" cols="60"
 							>最后！我得到了2-4-R论坛禁言待遇绝对免费！从https://cavenightingale.github.io/freemutecode那里得到你的</textarea
 						>
 					</div>
@@ -89,7 +88,11 @@
 				</div>
 				<div id="after">» 完成所有步骤后... 点击下面的按钮。 «</div>
 				<div class="c4">
-					<input type="button" on:click={() => alert('哎呀! 看来你没有完成步骤2!')} value="申请你的MCBSS禁言代码" />
+					<input
+						type="button"
+						on:click={() => alert("哎呀! 看来你没有完成步骤2!")}
+						value="申请你的MCBSS禁言代码"
+					/>
 				</div>
 				<br />
 				<br />
@@ -103,7 +106,10 @@
 	<div class="c4">
 		如果你没有成功进入末地旅游，这里有个替代链接：
 		<span class="Apple-style-span c8">
-			<a href="https://www.mcbbs.net/thread-968842-1-1.html" target="_blank"><span class="c7">CLICK HERE</span></a>
+			<a
+				href="https://www.mcbbs.net/thread-968842-1-1.html"
+				target="_blank"><span class="c7">CLICK HERE</span></a
+			>
 		</span>
 	</div>
 	<br />
@@ -114,9 +120,13 @@
 	<br />
 	<div class="separator c9" />
 	<footer style="text-align: center;">
-		本页面使用全部的CSS和部分HTML代码来自原版freegiftcode，本页面为玩梗网页，请勿当真。<br/>
-		免费正版礼品码类网站属于诈骗性质，向社交网站发表类似内容可能会导致禁言或禁访，请勿作死。<br/>
-		参考<a href="https://www.mcbbs.net/thread-1226924-1-1.html">【残叶杂谈】扒一扒所谓“免 费 正 版 礼 品 码”的背后</a>
+		本页面使用全部的CSS和部分HTML代码来自原版freegiftcode，本页面为玩梗网页，请勿当真。<br
+		/>
+		免费正版礼品码类网站属于诈骗性质，向社交网站发表类似内容可能会导致禁言或禁访，请勿作死。<br
+		/>
+		参考<a href="https://www.mcbbs.net/thread-1226924-1-1.html"
+			>【残叶杂谈】扒一扒所谓“免 费 正 版 礼 品 码”的背后</a
+		>
 	</footer>
 </nobr>
 
@@ -159,7 +169,7 @@
 
 	* {
 		margin: 0;
-		padding: 0
+		padding: 0;
 	}
 
 	#top {
@@ -168,7 +178,7 @@
 		background-position: top left;
 		margin: 0 auto;
 		font-size: 18px;
-		color: #000
+		color: #000;
 	}
 
 	#top h3 {
@@ -177,7 +187,7 @@
 		padding-left: 55px;
 		padding-top: 4px;
 		font-weight: 700;
-		font-family: comic sans ms, cursive
+		font-family: comic sans ms, cursive;
 	}
 
 	#containar {
@@ -188,7 +198,7 @@
 		margin-top: 30px;
 		border: solid;
 		border-width: thin;
-		border-color: #ccc
+		border-color: #ccc;
 	}
 
 	#left {
@@ -202,7 +212,7 @@
 		border-color: #ccc;
 		margin-left: 9px;
 		margin-right: 10px;
-		margin-top: 10px
+		margin-top: 10px;
 	}
 
 	#leftheader {
@@ -214,7 +224,7 @@
 		border-width: thin;
 		border-color: #ccc;
 		margin-top: 20px;
-		margin-bottom: 10px
+		margin-bottom: 10px;
 	}
 
 	#leftheaderleft {
@@ -222,7 +232,7 @@
 		height: 125px;
 		float: left;
 		background-color: transparent;
-		margin-left: 5px
+		margin-left: 5px;
 	}
 
 	#leftheaderright {
@@ -231,18 +241,18 @@
 		float: right;
 		background-color: transparent;
 		margin-right: 40px;
-		margin-left: 15px
+		margin-left: 15px;
 	}
 
 	#leftheaderright h3 {
 		font-family: Verdana, Geneva, sans-serif;
 		font-weight: 700;
-		font-size: 17px
+		font-size: 17px;
 	}
 
 	#leftheaderright p {
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: 13px
+		font-size: 13px;
 	}
 
 	#leftheader2 {
@@ -254,7 +264,7 @@
 		margin-top: 10px;
 		border: solid;
 		border-color: #e0c51a;
-		border-width: thin
+		border-width: thin;
 	}
 
 	#leftheader2 h5 {
@@ -262,7 +272,7 @@
 		font-weight: 700;
 		font-size: 14px;
 		padding-top: 10px;
-		padding-left: 50px
+		padding-left: 50px;
 	}
 
 	#leftheader2 p {
@@ -270,7 +280,7 @@
 		line-height: 150%;
 		font-size: 11px;
 		color: #666;
-		padding-left: 50px
+		padding-left: 50px;
 	}
 
 	#redeemed {
@@ -280,7 +290,7 @@
 		margin-top: 20px;
 		background-color: transparent;
 		font-size: 11px;
-		font-family: Verdana, Geneva, sans-serif
+		font-family: Verdana, Geneva, sans-serif;
 	}
 
 	#Features {
@@ -294,7 +304,7 @@
 		border-color: #c4c3c3;
 		border-width: thin;
 		font-size: 14px;
-		font-family: arial
+		font-family: arial;
 	}
 
 	#Features h4 {
@@ -307,22 +317,22 @@
 		padding-top: 10px;
 		border-bottom: solid;
 		border-bottom-color: #c4c3c3;
-		border-bottom-width: thin
+		border-bottom-width: thin;
 	}
 
 	#Features p {
-		width: auto
+		width: auto;
 	}
 
 	#comment {
 		width: 480px;
 		height: 80px;
-		margin: 0 auto
+		margin: 0 auto;
 	}
 
 	#after {
 		margin-top: 8px;
-		margin-bottom: 8px
+		margin-bottom: 8px;
 	}
 
 	#mcbbs-icon {

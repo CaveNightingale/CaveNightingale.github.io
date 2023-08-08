@@ -9,6 +9,8 @@ const config = defineConfig({
     dashes: "oldschool",
   },
 
+  layout: "./src/lib/note/layout.svelte",
+
   remarkPlugins: [remarkMath],
   rehypePlugins: [rehypeKatexSvelte],
 });

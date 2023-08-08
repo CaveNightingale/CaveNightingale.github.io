@@ -1,17 +1,21 @@
 <script lang="ts">
-	export let content: { type: any, text: string }[][];
+	export let content: { type: any; text: string }[][];
 </script>
+
 <div class="view">
 	<div class="content">
 		{#each content as line, i}
 			<div class="lineno">{i + 1}</div>
 			{#each line as element}
-				<div class="line"><svelte:component this={element.type} text={element.text}/></div>
+				<div class="line">
+					<svelte:component this={element.type} text={element.text} />
+				</div>
 			{/each}
-			<br/>
+			<br />
 		{/each}
 	</div>
 </div>
+
 <style>
 	.view {
 		font-family: monospace;

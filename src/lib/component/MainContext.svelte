@@ -1,6 +1,7 @@
 <div class="main-context">
-	<slot></slot>
+	<slot />
 </div>
+
 <style>
 	div {
 		padding-left: 0.8em;

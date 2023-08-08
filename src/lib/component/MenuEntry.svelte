@@ -1,12 +1,25 @@
+<script lang="ts">
+	export let href: (() => void) | string;
+	export let content: string;
+	function handleClick() {
+		if (typeof href === "string") {
+			open(href, "_self");
+		} else {
+			href();
+		}
+	}
+</script>
+
 <div class="outer" on:click={handleClick} on:keypress={() => {}}>
 	<div class="inner">
 		{content}
 	</div>
 </div>
+
 <style>
 	@keyframes hover {
 		from {
-			filter: brightness(1.0);
+			filter: brightness(1);
 		}
 		to {
 			filter: brightness(0.9);
@@ -33,14 +46,3 @@
 		padding: 1em;
 	}
 </style>
-<script lang="ts">
-	export let href: (() => void) | string;
-	export let content: string;
-	function handleClick() {
-		if (typeof href === 'string') {
-			open(href, '_self');
-		} else {
-			href();
-		}
-	}
-</script>

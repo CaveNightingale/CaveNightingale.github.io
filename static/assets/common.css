@@ -1,0 +1,16 @@
+:root {
+	font-family: "Courier New", Courier, monospace;
+}
+
+@media screen and (min-width: 1200px) {
+	.katex-display>.katex {
+		/**
+		* Override the default text-align: center
+		* Since modern screens are wide
+		* If we place equations in the center
+		* It will be too far from the text
+		**/
+		text-align: left !important;
+		padding-left: 10em !important;
+	}
+}

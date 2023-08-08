@@ -1,4 +1,5 @@
 <div>❗<slot /></div>
+
 <style>
 	div {
 		border-style: solid;
