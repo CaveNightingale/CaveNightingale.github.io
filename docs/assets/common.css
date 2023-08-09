@@ -14,3 +14,11 @@
 		padding-left: 10em !important;
 	}
 }
+
+.md-main {
+	line-height: 1.6em;
+}
+
+.md-main a {
+	color: black;
+}

@@ -1,14 +1,33 @@
 <script lang="ts">
+	import { url } from "./note";
 	import type { Note } from "./topic-list";
 	export let note: Note;
 	let expanded = false;
+	let active = false;
+	$: {
+		let dfs = (note: Note): boolean => {
+			if (note.url === $url) {
+				return true;
+			}
+			if (note.sub) {
+				for (let child of note.sub) {
+					if (dfs(child)) {
+						return true;
+					}
+				}
+			}
+			return false;
+		};
+		expanded = dfs(note);
+		active = note.url === $url;
+	}
 </script>
 
 <div class="root">
-	<div class="self">
+	<div class="self" class:active>
 		<div
 			class="expand"
-			class:expanded={expanded}
+			class:expanded
 			class:expandable={note.sub}
 			on:click={() => (expanded = !expanded)}
 			on:keypress={() => (expanded = !expanded)}
@@ -46,5 +65,11 @@
 	}
 	.expanded {
 		rotate: 90deg;
+	}
+	.active {
+		font-weight: bold;
+	}
+	.active > a {
+		color: #bb3989;
 	}
 </style>

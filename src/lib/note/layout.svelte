@@ -3,7 +3,17 @@
 	import { topics } from "./topic-list";
 </script>
 
-<div class="main">
+<svelte:head>
+	<!-- Katex Default -->
+	<link
+		rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+		integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+		crossorigin="anonymous"
+	/>
+	<link rel="stylesheet" href="/assets/common.css" />
+</svelte:head>
+<div class="md-main">
 	<slot />
 </div>
 <div class="sidebar">
@@ -13,7 +23,7 @@
 </div>
 
 <style>
-	.main {
+	.md-main {
 		padding-left: 1.2em;
 		padding-right: 0.8em;
 		padding-top: 2.4em;
@@ -24,7 +34,7 @@
 		background-color: #f5f5f5;
 	}
 	@media screen and (min-width: 1200px) {
-		.main {
+		.md-main {
 			padding-top: 2.4em;
 			border-radius: 10px;
 			width: calc(100% - 400px - 2em);
@@ -37,7 +47,7 @@
 		}
 
 		.sidebar {
-			padding-top: 2.4em;
+			padding-top: 2.7em;
 			display: block;
 			position: fixed;
 			top: 0;

@@ -10,6 +10,38 @@ const topics: Note[] = [
 		url: "/note"
 	},
 	{
+		title: "Calculus",
+		url: "/note/calculus",
+	},
+	{
+		title: "Number Theory",
+		url: "/note/number-theory",
+	},
+	{
+		title: "Graph Theory",
+		url: "/note/graph-theory",
+	},
+	{
+		title: "Combinatorics",
+		url: "/note/combinatorics",
+	},
+	{
+		title: "Probability",
+		url: "/note/probability",
+	},
+	{
+		title: "Linear Algebra",
+		url: "/note/linear-algebra",
+	},
+	{
+		title: "Geometry",
+		url: "/note/geometry",
+	},
+	{
+		title: "Miscellaneous",
+		url: "/note/miscellaneous",
+	},
+	{
 		title: "首页",
 		url: "/",
 		sub: [
