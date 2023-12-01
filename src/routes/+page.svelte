@@ -22,5 +22,5 @@
 			style="color: white;">github</a
 		>。
 	</Footer> -->
-	<h1>目录维修中。。。</h1>
+	<h1 style="color: black;">目录维修中。。。</h1>
 </MainContext>
