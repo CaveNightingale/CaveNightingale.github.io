@@ -3,11 +3,11 @@
 	import Footer from "$lib/component/Footer.svelte";
 	import MainContext from "$lib/component/MainContext.svelte";
 	import MenuEntry from "$lib/component/MenuEntry.svelte";
-	pageInfo("目录", null);
+	pageInfo("目录", null, false);
 </script>
 
 <MainContext>
-	<MenuEntry href="/freemutecode" content="免费禁言代码" />
+	<!-- <MenuEntry href="/freemutecode" content="免费禁言代码" />
 	<MenuEntry href="/creditchart" content="MCBBS积分分析" />
 	<MenuEntry href="/chatgpt" content="ChatGPT测试记录" />
 	<MenuEntry href="/note" content="笔记" />
@@ -21,5 +21,6 @@
 			target="_blank"
 			style="color: white;">github</a
 		>。
-	</Footer>
+	</Footer> -->
+	<h1>目录维修中。。。</h1>
 </MainContext>

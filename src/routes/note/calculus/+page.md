@@ -1,4 +1,3 @@
-<script lang="ts">
-	import { noteInfo } from '$lib/note/note';
-	noteInfo('Caculus', '/note', 'calculus');
-</script>
+# Calculus
+
+Calculus, knowning as advanced mathematics, is about real numbers, functions and infinity.

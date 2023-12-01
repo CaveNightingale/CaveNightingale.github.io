@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Nav from "$lib/component/Nav.svelte";
 	import { title, back, background, scable } from "$lib/common";
 </script>

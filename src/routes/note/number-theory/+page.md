@@ -1,4 +1,5 @@
-<script lang="ts">
-	import { noteInfo } from '$lib/note/note';
-	noteInfo('Number Theory', '/note', 'number-theory');
-</script>
+# Number Theory
+
+Number thoery is the study of the properties of integers.
+
+However, I don't want to discuss things like "what's integer?". It's math students' job to define what integers are, but not CS students'.

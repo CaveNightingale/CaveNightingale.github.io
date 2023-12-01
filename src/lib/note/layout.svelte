@@ -1,6 +1,12 @@
 <script lang="ts">
+    import { page } from "$app/stores";
 	import NoteLink from "./NoteLink.svelte";
+    import { getTitle, noteInfo } from "./note";
 	import { topics } from "./topic-list";
+	// Setup note info
+	let path = $page.url.pathname;
+	let split = path.lastIndexOf('/');
+	noteInfo(getTitle(path), path.substring(0, split), path.substring(split + 1));
 </script>
 
 <svelte:head>
@@ -12,6 +18,7 @@
 		crossorigin="anonymous"
 	/>
 	<link rel="stylesheet" href="/assets/common.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PrismJS/prism-themes/themes/prism-ghcolors.css" />
 </svelte:head>
 <div class="md-main">
 	<slot />
@@ -24,8 +31,8 @@
 
 <style>
 	.md-main {
-		padding-left: 1.2em;
-		padding-right: 0.8em;
+		padding-left: 2.4em;
+		padding-right: 2.4em;
 		padding-top: 2.4em;
 		background-color: white;
 	}
@@ -37,7 +44,7 @@
 		.md-main {
 			padding-top: 2.4em;
 			border-radius: 10px;
-			width: calc(100% - 400px - 2em);
+			width: calc(100% - 400px - 4.6em);
 			margin: auto;
 			position: absolute;
 			top: 0;
