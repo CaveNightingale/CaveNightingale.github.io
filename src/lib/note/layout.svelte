@@ -1,8 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
 	import NoteLink from "./NoteLink.svelte";
-    import { getTitle, noteInfo } from "./note";
-	import { topics } from "./topic-list";
+    import { getTitle, noteInfo, topics } from "./note";
 	// Setup note info
 	let path = $page.url.pathname;
 	let split = path.lastIndexOf('/');

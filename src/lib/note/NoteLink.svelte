@@ -1,15 +1,14 @@
 <script lang="ts">
-	import { url } from "./note";
-	import type { Note } from "./topic-list";
-	export let note: Note;
+	import { url, type Note, type Category } from "./note";
+	export let note: Note | Category;
 	let expanded = false;
 	let active = false;
 	$: {
-		let dfs = (note: Note): boolean => {
+		let dfs = (note: Note | Category): boolean => {
 			if (note.url === $url) {
 				return true;
 			}
-			if (note.sub) {
+			if (typeof note.sub !== "undefined") {
 				for (let child of note.sub) {
 					if (dfs(child)) {
 						return true;
@@ -32,7 +31,10 @@
 			on:click={() => (expanded = !expanded)}
 			on:keypress={() => (expanded = !expanded)}
 		/>
-		<a href={note.url}>{note.title}</a>
+		<a
+			href={note.url || "javascript:;"}
+			on:click={() => (expanded = !expanded)}>{note.title}</a
+		>
 	</div>
 	{#if note.sub && expanded}
 		{#each note.sub as child}

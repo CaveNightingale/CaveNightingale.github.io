@@ -1,22 +1,4 @@
-# Topic List
-- [Logic and Set Theory](/note/logic-and-set-theory)
-- [Calculus](/note/calculus)
-- [Number Theory](/note/number-theory)
-- [Graph Theory](/note/graph-theory)
-- [Group Theory](/note/group-theory)
-- [String and Automata](/note/string-and-automata)
-- [Combinatorics](/note/combinatorics)
-- [Probability](/note/probability)
-- [Linear Algebra](/note/linear-algebra)
-- [Geometry](/note/geometry)
-- [Game Theory](/note/game-theory)
-- [Polynomial](/note/polynomial)
-- [Data Structure](/note/data-structure)
-- [Algorithm](/note/algorithm)
-- [Numerical Analysis](/note/numerical-analysis)
-- [Data Science](/note/data-science)
-- [Utilities and Libraries](/note/utilities-and-libraries)
-- [Miscellaneous](/note/miscellaneous)
+# To-do list
 
-## Speclial pages
-- [Site Test](/note/miscellaneous/site-test)
+- Dirichlet convolution
+- Mobius function

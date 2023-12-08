@@ -1,6 +1,18 @@
 import { back, background, title } from "$lib/common"
 import { writable } from "svelte/store";
-import { topics, type Note } from "./topic-list";
+import topics from "../generated/topic-list.json";
+
+interface Note {
+	title: string;
+	url: string;
+	sub?: Note[];
+}
+
+interface Category {
+	title: string,
+	sub: Note[],
+	url: '', // Category does not have a url, but we need it to be compatible with Note
+};
 
 let url = writable("");
 
@@ -25,29 +37,22 @@ function noteInfo(_title: string, _back: string, name: string) {
  * @throws If the note does not exist
  */
 function getTitle(path: string): string {
-	let dfs = (node: Note, path: string): string | null => {
-		if (node.url === path) {
-			return node.title;
-		}
-		for (let sub of node.sub || []) {
-			let res = dfs(sub, path);
-			if (res !== null) {
-				return res;
+	for (let node of topics) {
+		for (let sub of node.sub) {
+			if (sub.url === path) {
+				return sub.title;
 			}
 		}
-		return null;
 	}
-	for (let node of topics) {
-		let res = dfs(node, path);
-		if (res !== null) {
-			return res;
-		}
-	}
-	throw new Error("No such note `" + path + "`");
+	return "";
 }
+
 
 export {
 	noteInfo,
 	getTitle,
-	url
+	url,
+	type Category,
+	type Note,
+	topics
 }
