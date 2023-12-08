@@ -6,21 +6,21 @@ category: Number Theory
 
 ## Definition
 
-The Euler's Totient Function, denoted as $\phi(n)$, is defined as the number of positive integers less than or equal to $n$ that are relatively prime to $n$.
+The Euler's Totient Function, denoted as $\varphi(n)$, is defined as the number of positive integers less than or equal to $n$ that are relatively prime to $n$.
 
 ## Properties
 
-### Property 1. $\phi(n) = n - 1$, if $n$ is prime
+### Property 1. $\varphi(n) = n - 1$, if $n$ is prime
 
 **Proof**
 
 It's easy to see that all numbers less than $n$ are relatively prime to $n$ if $n$ is prime. 
 
-Therefore, $\phi(n) = n - 1$.
+Therefore, $\varphi(n) = n - 1$.
 
 $\square$
 
-### Property 2. $\phi(pq) = (p - 1)(q - 1)$, if $p$ and $q$ are distinct primes
+### Property 2. $\varphi(pq) = (p - 1)(q - 1)$, if $p$ and $q$ are distinct primes
 
 **Proof**
 
@@ -28,11 +28,11 @@ Since $p$ is prime, $\operatorname{gcd}(p, k) \neq 1$ gives $p | k$. Hence, numb
 
 Similarly, there are $p - 1$ numbers less than $pq$ that are not relatively prime to $pq$ and the union of these 2 sets is empty since there is no such $x$ that satisfy $p | x$, $q | x$ and $x < pq$. 
 
-Therefore, $\phi(pq) = pq - 1 - (p - 1) - (q - 1) = (p - 1)(q - 1)$. 
+Therefore, $\varphi(pq) = pq - 1 - (p - 1) - (q - 1) = (p - 1)(q - 1)$. 
 
 $\square$
 
-### Property 3. $\phi(p^k) = p^k - p^{k - 1}$, if $p$ is prime
+### Property 3. $\varphi(p^k) = p^k - p^{k - 1}$, if $p$ is prime
 
 **Proof**
 
@@ -40,15 +40,15 @@ Since $p$ is prime, $\operatorname{gcd}(p, k) \neq 1$ gives $p | k$.
 
 Hence, numbers less than $p^k$ that are not relatively prime to $p^k$ are $p, 2p, \dots, (p^{k - 1} - 1)p$. It's easy to see that there are $\lfloor \dfrac{p ^{k}}{p} \rfloor - 1 = p^{k - 1} - 1$ such numbers.
 
-Therefore, $\phi(p^k) = p^k - 1 - (p^{k - 1} - 1) = p^k - p^{k - 1}$. 
+Therefore, $\varphi(p^k) = p^k - 1 - (p^{k - 1} - 1) = p^k - p^{k - 1}$. 
 
 $\square$
 
-### Property 4. $\phi(n)$ is multiplicative
+### Property 4. $\varphi(n)$ is multiplicative
 
 **Proof**
 
-Let $a$ and $b$ be two arbitrary coprime positive integers. We want to show that $\phi(ab) = \phi(a)\phi(b)$.
+Let $a$ and $b$ be two arbitrary coprime positive integers. We want to show that $\varphi(ab) = \varphi(a)\varphi(b)$.
 
 From [CRT](/note/chinese-remainder-theorem), we know that for each pair of number $m, n$ that is coprime to $a, b$, there is a unique number $x$ such that $0 \leq x < ab$ and $x \equiv m \pmod{a}$ and $x \equiv n \pmod{b}$.
 
@@ -60,11 +60,11 @@ we know such $x$ is also coprime to $ab$.
 
 It's easy to see echo $x$ which is coprime to $a, b$ can be mapped to a unique pair of numbers $(m, n)$ that is coprime to $ab$ s.t $0 \leq m < a$ and $0 \leq n < b$.
 
-Therefore, there are $\phi(a)\phi(b)$ numbers less than $ab$ that are coprime to $ab$.
+Therefore, there are $\varphi(a)\varphi(b)$ numbers less than $ab$ that are coprime to $ab$.
 
 $\square$
 
-### Property 5. $\phi(n) = n\prod_{p|n}(1 - \frac{1}{p})$
+### Property 5. $\varphi(n) = n\prod_{p|n}(1 - \frac{1}{p})$
 
 **Proof**
 
@@ -72,9 +72,9 @@ Let a positive number $n = \prod_{i = 1}^k p_i^{a_i}$ where $p_i$ are distinct p
 
 $$
 \begin{gather*}
-\phi(n) \\
-= \phi(\prod_{i = 1}^k p_i^{a_i}) \\
-= \prod_{i = 1}^k \phi(p_i^{a_i}) \\
+\varphi(n) \\
+= \varphi(\prod_{i = 1}^k p_i^{a_i}) \\
+= \prod_{i = 1}^k \varphi(p_i^{a_i}) \\
 = \prod_{i = 1}^k p_i^{a_i} - p_i^{a_i - 1} \\
 = n\prod_{i = 1}^k(1 - \frac{1}{p_i})
 \end{gather*}
@@ -86,12 +86,12 @@ $\square$
 
 Euler's Theorem states that if $a$ and $n$ are coprime positive integers, then
 $$
-a^{\phi(n)} \equiv 1 \pmod{n}
+a^{\varphi(n)} \equiv 1 \pmod{n}
 $$
 
 **Proof**
 
-Let $B = \{b_1, b_2, \dots, b_{\phi(n)}\}$ be the set of numbers less than $n$ that are coprime to $n$.
+Let $B = \{b_1, b_2, \dots, b_{\varphi(n)}\}$ be the set of numbers less than $n$ that are coprime to $n$.
 
 Assume that there are two such numbers $b_i$ and $b_j$ such that $a b_i \equiv a b_j \pmod{n}$ and $b_i \neq b_j$.
 $$
@@ -106,14 +106,14 @@ Since $a$ and $n$ are coprime, $n | a (b_i - b_j)$ gives $n | b_i - b_j$ or $b_i
 
 What's more, since both $a$ and $b_i$ are coprime to $n$, $a b_i$ is also coprime to $n$.
 
-Therefore, $\{a b_1, a b_2, \dots, a b_{\phi(n)}\}$ is a permutation of $B$.
+Therefore, $\{a b_1, a b_2, \dots, a b_{\varphi(n)}\}$ is a permutation of $B$.
 
 Hence,
 $$
 \begin{gather*}
-\prod_{i = 1}^{\phi(n)} ab_i &\equiv \prod_{i = 1}^{\phi(n)} b_i \pmod{n} \\
-a^{\phi(n)} \prod_{i = 1}^{\phi(n)} b_i &\equiv \prod_{i = 1}^{\phi(n)} b_i \pmod{n} \\
-a^{\phi(n)} &\equiv 1 \pmod{n}
+\prod_{i = 1}^{\varphi(n)} ab_i &\equiv \prod_{i = 1}^{\varphi(n)} b_i \pmod{n} \\
+a^{\varphi(n)} \prod_{i = 1}^{\varphi(n)} b_i &\equiv \prod_{i = 1}^{\varphi(n)} b_i \pmod{n} \\
+a^{\varphi(n)} &\equiv 1 \pmod{n}
 \end{gather*}
 $$
 
@@ -128,7 +128,7 @@ $$
 
 **Proof**
 
-Since $p$ is a prime, $\phi(p) = p - 1$.
+Since $p$ is a prime, $\varphi(p) = p - 1$.
 
 Since $a$ is less than $p$ and $p$ is a prime, $a$ must be coprime to $p$.
 
@@ -177,7 +177,7 @@ $\square$
 
 Then we go back to the proof of Wilson's Theorem.
 
-Consider Euler's Theorem's proof. We know that $\{a b_1, a b_2, \dots, a b_{\phi(n)}\}$ is a permutation of $B$, which gives the inverse of $a$ modulo $n$ is unique if $n$ is prime and $0 < a < n$.
+Consider Euler's Theorem's proof. We know that $\{a b_1, a b_2, \dots, a b_{\varphi(n)}\}$ is a permutation of $B$, which gives the inverse of $a$ modulo $n$ is unique if $n$ is prime and $0 < a < n$.
 
 Thus, we can pair up each number in $B$ with its inverse modulo $p$ except $1$ and $p - 1$, whose inverse is themselves.
 

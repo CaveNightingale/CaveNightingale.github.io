@@ -59,7 +59,7 @@ f(x + h) = f(x) + hf'(x) + {h^2 \over 2} f''(x) + {h^3 \over 6} f'''(\xi_2)
 \end{gather}
 $$
 
-We want ro remove $f''(x)$ so we subtract $4$ times the second equation from the first one and get
+We want to remove $f''(x)$ so we subtract $4$ times the second equation from the first one and get
 
 $$
 f(x + 2h) - 4 f(x + h) = -3 f(x) - 2h f'(x) + {2h^3 \over 3} f'''(\xi_1) - {2h^3 \over 3} f'''(\xi_2)\\
