@@ -50,3 +50,8 @@ p {
 	padding: 0.2em 0.4em;
 	border-radius: 0.2em;
 }
+
+/**Add more spaces between formulas*/
+.mspace.newline {
+	height: 1.5em;
+}
