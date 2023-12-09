@@ -47,11 +47,14 @@ function toSnakeCategory(category) {
 
 function scanNotes() {
 	let root = 'src/routes/note';
-	
+	let lastGeneratedTime = fs.existsSync('src/lib/generated/topic-list.json') ? fs.statSync('src/lib/generated/topic-list.json').mtimeMs : 0;
+	let lastSourceTime = 0;
+
 	let res = {};
 	for (let file of fs.readdirSync(root)) {
 		let path = root + '/' + file + '/+page.md';
 		if (fs.existsSync(path)) {
+			lastSourceTime = Math.max(lastSourceTime, fs.statSync(path).mtimeMs);
 			let md = fs.readFileSync(path, 'utf-8');
 			let meta = parseMeta(md);
 			let category = meta.category || 'Uncategorized';
@@ -68,28 +71,31 @@ function scanNotes() {
 			res[snakeCategory].sub.push({ title, url });
 		}
 	}
+	if (lastGeneratedTime >= lastSourceTime) {
+		return;
+	}
 	let json = Object.values(res);
-  json.sort((a, b) => a.title.localeCompare(b.title));
-  let str = JSON.stringify(json);
-  fs.writeFileSync('src/lib/generated/topic-list.json', str);
+	json.sort((a, b) => a.title.localeCompare(b.title));
+	let str = JSON.stringify(json);
+	fs.writeFileSync('src/lib/generated/topic-list.json', str);
 }
 
 const config = {
-  extensions: [".svelte", ...mdsvexConfig.extensions],
+	extensions: [".svelte", ...mdsvexConfig.extensions],
 
-  // Consult https://kit.svelte.dev/docs/integrations#preprocessors
-  // for more information about preprocessors
-  preprocess: [{markup : scanNotes}, vitePreprocess(), mdsvex(mdsvexConfig)],
+	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
+	// for more information about preprocessors
+	preprocess: [{ markup: scanNotes }, vitePreprocess(), mdsvex(mdsvexConfig)],
 
-  kit: {
-    // adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-    // If your environment is not supported or you settled on a specific environment, switch out the adapter.
-    // See https://kit.svelte.dev/docs/adapters for more information about adapters.
-    adapter: adapter({
-      pages: "docs",
-      assets: "docs",
-    }),
-  },
+	kit: {
+		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
+		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
+		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
+		adapter: adapter({
+			pages: "docs",
+			assets: "docs",
+		}),
+	},
 };
 
 export default config;

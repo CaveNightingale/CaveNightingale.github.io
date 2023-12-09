@@ -2,3 +2,4 @@
 
 - Dirichlet convolution
 - Mobius function
+- Numerical integration (Romberg / Lobatto)
