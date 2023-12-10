@@ -9,20 +9,20 @@ category: Numerical Analysis
 The general idea of Newton-Cotes formula is to first interpolate the function, then integrate the interpolation.
 
 $$
-f(x) \approx I_n f(x)\\
-\int_a^b f(x) dx \approx \int_a^b I_n f(x) dx
+f(x) \approx I f(x)\\
+\int_a^b f(x) dx \approx \int_a^b I f(x) dx
 $$
 
-We substitute Lagrange interpolation polynomial into the formula.
+We substitute Lagrange interpolation polynomial into the formula. Let $n$ be **the number of points we use**. (Not the degree of the polynomial)
 
 $$
-f(x) = \sum_{i=0}^n f(x_i) \prod_{j=0, j \neq i}^n\dfrac{x-x_j}{x_i-x_j} + \dfrac{f^{(n+1)}(\xi)}{(n+1)!} \prod_{i=0}^n (x-x_i)\\
-\int_a^b f(x) dx = \sum_{i=0}^n f(x_i) \int_a^b \prod_{j=0, j \neq i}^n\dfrac{x-x_j}{x_i-x_j} dx + \int_a^b \dfrac{f^{(n+1)}(\xi)}{(n+1)!} \prod_{i=0}^n (x-x_i) dx
+f(x) = \sum_{i=1}^n f(x_i) \prod_{j=1, j \neq i}^n\dfrac{x-x_j}{x_i-x_j} + \dfrac{f^{(n)}(\xi)}{n!} \prod_{i=1}^n (x-x_i)\\
+\int_a^b f(x) dx = \sum_{i=1}^n f(x_i) \int_a^b \prod_{j=1, j \neq i}^n\dfrac{x-x_j}{x_i-x_j} dx + \int_a^b \dfrac{f^{(n)}(\xi)}{n!} \prod_{i=1}^n (x-x_i) dx
 $$
 
-The part $\int_a^b \dfrac{f^{(n+1)}(\xi)}{(n+1)!} \prod_{i=0}^n (x-x_i) dx$ is called the remainder term, denoted as $E(f)$.
+The part $\int_a^b \dfrac{f^{(n)}(\xi)}{n!} \prod_{i=1}^n (x-x_i) dx$ is called the remainder term, denoted as $E(f)$.
 
-The $\int_a^b \prod_{j=0, j \neq i}^n\dfrac{x-x_j}{x_i-x_j} dx$ part is unrelated to $f(x)$, so we can precompute it and store it in a table.
+The $\int_a^b \prod_{j=1, j \neq i}^n\dfrac{x-x_j}{x_i-x_j} dx$ part is unrelated to $f(x)$, so we can precompute it and store it in a table.
 
 ### Degree of Precision
 

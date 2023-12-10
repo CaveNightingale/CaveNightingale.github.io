@@ -16,15 +16,21 @@
 			errorMessage = "WebGL not supported";
 			return;
 		}
-		main(gl);
+		main(gl as WebGLRenderingContext & { canvas: HTMLCanvasElement }, {
+			error: (msg) => {
+				errorMessage = msg;
+			},
+		});
 	}
 
 	onMount(load);
 </script>
+
 <div id="container">
 	<canvas id="canvas" width="800" height="600"></canvas>
 	<div>{errorMessage}</div>
 </div>
+
 <style>
 	#container {
 		width: 800px;
