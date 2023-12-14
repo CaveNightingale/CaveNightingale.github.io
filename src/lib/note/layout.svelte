@@ -33,6 +33,7 @@
 		padding-left: 2.4em;
 		padding-right: 2.4em;
 		padding-top: 2.4em;
+		margin-bottom: 10em;
 		background-color: white;
 	}
 	.sidebar {

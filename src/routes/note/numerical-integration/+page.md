@@ -24,6 +24,8 @@ The part $\int_a^b \dfrac{f^{(n)}(\xi)}{n!} \prod_{i=1}^n (x-x_i) dx$ is called 
 
 The $\int_a^b \prod_{j=1, j \neq i}^n\dfrac{x-x_j}{x_i-x_j} dx$ part is unrelated to $f(x)$, so we can precompute it and store it in a table.
 
+As for the remainder term, sadly we have no way to find a closed form. So we just keep the ugly form.
+
 ### Degree of Precision
 
 **The degree of precision of a numerical integration formula is the largest integer $n$ such that the formula is exact for all polynomials of degree $n$ or less.**
@@ -38,7 +40,7 @@ For any polynomial $f(x)$ of degree $n-1$, Lagrange Interpolation restores $f(x)
 
 $\square$
 
-**Theorem. If we use $n$ points in equal interval, then the degree of precision is exactly $n$ when $n$ is odd, and $n-1$ when $n$ is even.**
+**Theorem. If we use $n$ equally spaced points, then the degree of precision is at least $n$ when $n$ is odd, and $n-1$ when $n$ is even.**
 
 This is obvious since the points are symmetric, so the odd degree terms are cancelled out.
 
@@ -283,4 +285,9 @@ Here we only discuss the case where $\rho(x) = \dfrac{1}{\sqrt {1 + x^2}}$.
 
 In this case, we use Chebyshev Zeroes as the points $x_i$. The proof is similar to the proof of Gauss-Legendre Quadrature, we omit it here.
 
-To be continued...
+### Lobatto Quadrature
+
+Lobatto's idea is use $a$, $b$ and the roots of $P'_{n-2}(x)$ as the points $x_i$.
+
+In this way, it uses the end points as information.
+

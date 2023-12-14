@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { pageInfo } from "$lib/common";
 	import { onMount } from "svelte";
 	import main from "./main";
-	pageInfo("WebGL 样例", "/", false, true);
 
 	let errorMessage = "";
 	function load() {
@@ -36,11 +34,18 @@
 		width: 800px;
 		height: 600px;
 		margin: auto;
-		margin-top: 5em;
 	}
+
 	#canvas {
 		width: 100%;
 		height: 100%;
 		border: 1px red solid;
+	}
+
+	@media (max-width: 1200px) {
+		#container {
+			width: 100%;
+			height: 100%;
+		}
 	}
 </style>

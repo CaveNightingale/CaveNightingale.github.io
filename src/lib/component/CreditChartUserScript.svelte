@@ -18,7 +18,7 @@
 			fetch(PATCH_URL).then((res) => res.text()),
 		])
 			.then(([base, patch]) => {
-				text = applyPatch(base, patch);
+				text = applyPatch(base, patch) as string;
 				state = "data";
 			})
 			.catch((error) => {
