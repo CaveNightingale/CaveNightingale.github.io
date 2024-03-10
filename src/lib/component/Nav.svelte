@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Popup from "./Popup.svelte";
-
 	export let title: string;
 	export let background: boolean = false;
 	export let back: string | (() => void) | null;
@@ -25,17 +23,14 @@
 		hidden={!back}
 	/>
 	<div id="topbar-title"><b>{title}</b></div>
-	<Popup />
-	<Popup />
 </div>
 <div id="klpbg" class:hide={!background} />
 
 <style>
 	#topbar {
 		position: fixed;
-		top: 0px;
-		left: 0px;
-		border: 0px;
+		top: 0;
+		left: 0;
 		width: 100%;
 		height: 2.4em;
 		background-color: #65a1ee;
@@ -43,9 +38,8 @@
 		align-items: center;
 		-webkit-user-drag: none;
 		z-index: 1000;
-		border-bottom: 2px;
-		border-style: solid;
-		border-color: #a37a877f;
+		border: 0 solid #a37a877f;
+		border-bottom-width: 2px;
 	}
 
 	#topbar-title {
@@ -75,8 +69,8 @@
 		width: 100%;
 		height: 100%;
 		position: fixed;
-		left: 0px;
-		top: 0px;
+		left: 0;
+		top: 0;
 		filter: brightness(0.75);
 		z-index: -100;
 	}
