@@ -2,17 +2,29 @@
 category: Numerical Analysis
 ---
 
+<script lang="ts">
+	import Proof from '$lib/component/content/Proof.svelte';
+	import State from '$lib/component/content/State.svelte';
+</script>
+
 # Chebyshev Polynomial
 
 ## Definition
+
+<State variant='definition'>
 
 Define **Chebyshev polynomial** of the first kind $T_n(x)$ as
 
 $$
 T_n(x) = \cos(n \arccos x)
 $$
+</State>
+
+<State variant='definition'>
 
 Define a polynomial whose coeffient of highest degree is 1 as a **monic** polynomial.
+
+</State>
 
 ## Recurrence Relation
 
@@ -48,7 +60,13 @@ $$
 
 We only discuss the case when $x \in [-1, 1]$, so $\arccos x$ is real.
 
-We want to prove that, for any positive integer $n$, $\dfrac{1}{2^{n - 1}}T_n(x)$ is a monic polynomial with degree $n$.
+<State variant='lemma'>
+
+For any positive integer $n$, $\dfrac{1}{2^{n - 1}}T_n(x)$ is a monic polynomial with degree $n$.
+
+</State>
+
+<Proof>
 
 Basis Step:
 
@@ -68,7 +86,15 @@ $$
 
 The first term provided the monic polynomial with degree $n$, and the second term provided the polynomial with degree $n - 2$, so the sum of the two terms is a monic polynomial with degree $n$.
 
-$\square$ 
+</Proof>
+
+<State variant='theorem'>
+
+No other zeros provide a narrower bound for $w(x)$ than zeros of chebyshev polynomials.
+
+</State>
+
+<Proof>
 
 From the range of the function $\cos$, we have
 
@@ -114,7 +140,7 @@ Suppose that there exist a monic polynomial $p(x)$ with same degree as $w(x)$, w
 
 We consider the extrema of $w(x)$.
 
-Since $|p(x)| < {1 \over 2 ^ {n - 1}}$
+Since $|p(x)| < \dfrac{1}{2 ^ {n - 1}}$
 
 When $w(x) = \dfrac{1}{2 ^ {n - 1}}$, $w(x) - p(x) = \dfrac{1}{2 ^ {n - 1}} - p(x) > 0$
 
@@ -126,6 +152,6 @@ Since $w(x)$ and $p(x)$ is monic polynomial with degree $n$, $w(x) - p(x)$ is a 
 
 Polynomial with degree $n - 1$ can't have $n$ zeros, so no such polynomial $p(x)$ exists.
 
-$\square$ 
+</Proof>
 
 So this is why we use zeros of chebyshev polynomials as interpolation points.

@@ -2,6 +2,11 @@
 category: Numerical Analysis
 ---
 
+<script lang="ts">
+	import Proof from '$lib/component/content/Proof.svelte';
+	import State from '$lib/component/content/State.svelte';
+</script>
+
 # Numeric Integration
 
 ## Newton-Cotes Formula
@@ -28,19 +33,31 @@ As for the remainder term, sadly we have no way to find a closed form. So we jus
 
 ### Degree of Precision
 
-**The degree of precision of a numerical integration formula is the largest integer $n$ such that the formula is exact for all polynomials of degree $n$ or less.**
+<State variant="definition">
+
+The degree of precision of a numerical integration formula is the largest integer $n$ such that the formula is exact for all polynomials of degree $n$ or less.
+
+</State>
 
 To find out a formula's degree of precision, we can verify it on $1, x, x^2, \cdots$. Since integration is a linear operator, if the formula is exact for $1, x, x^2, \cdots, x^n$, then it's exact for their linear combination. If they are not exact, of course its degree of precision is less than $n$ since the counterexample exists.
 
-**Theorem. If we use $n$ points in Lagrange Interpolation, then the degree of precision is at least $n-1$.**
+<State variant="theorem">
 
-**Proof**
+If we use $n$ points in Lagrange Interpolation, then the degree of precision is at least $n-1$.
+
+</State>
+
+<Proof>
 
 For any polynomial $f(x)$ of degree $n-1$, Lagrange Interpolation restores $f(x)$ exactly. So the degree of precision is at least $n-1$.
 
-$\square$
+</Proof>
 
-**Theorem. If we use $n$ equally spaced points, then the degree of precision is at least $n$ when $n$ is odd, and $n-1$ when $n$ is even.**
+<State variant="theorem">
+
+If we use $n$ equally spaced points, then the degree of precision is at least $n$ when $n$ is odd, and $n-1$ when $n$ is even.
+
+</State>
 
 This is obvious since the points are symmetric, so the odd degree terms are cancelled out.
 
@@ -52,16 +69,21 @@ f(x) = f(a)\dfrac{x-b}{a-b} + f(b)\dfrac{x-a}{b-a} + \dfrac{f''(\xi)}{2}(x-a)(x-
 \int_a^b f(x) dx = \dfrac{b-a}{2}(f(a) + f(b)) - \dfrac{f''(\xi)}{12}(b-a)^3
 $$
 
+<State variant="collary">
+
 The degree of precision is $1$.
 
-**Proof**
+</State>
+
+<Proof>
+
 When $f(x) = 1$, $\int_a^b f(x) dx = b-a$. The formula is exact.
 
 When $f(x) = x$, $\int_a^b f(x) dx = \dfrac{b^2-a^2}{2}$. The formula is exact.
 
 When $f(x) = x^2$, $\int_a^b f(x) dx = \dfrac{b^3-a^3}{3}$. The formula is not exact.
 
-$\square$
+</Proof>
 
 ### Simpson's Rule
 
@@ -116,9 +138,13 @@ We first start recursion with the whole interval, then divide the interval into 
 
 The idea of Gaussian Quadrature is to choose the points $x_i$ and weights $w_i$ such that the degree of precision is as high as possible.
 
-**Theorem. If we use $n$ points in Newton-Cotes formula, then the degree of precision is at most $2n-1$.**
+<State variant="theorem">
 
-**Proof**
+If we use $n$ points in Newton-Cotes formula, then the degree of precision is at most $2n-1$.
+
+</State>
+
+<Proof>
 
 Proof by contradiction. Suppose that some one choose points $x_i$ and weights $w_i$ such that the degree of precision is $2n$.
 
@@ -132,9 +158,13 @@ $$
 
 However, $f(x) = 0$ holds only when $x = x_i$ for all $i$, and $f(x) > 0$ for all other places. So the integral is positive. Contradiction.
 
-$\square$
+</Proof>
 
-**Definition. If $n$ points $x_i$ and weights $w_i$ satisfy the degree of precision is $2n-1$, then the intergation formula is called Gaussian Quadrature.**
+<State variant="definition">
+
+If $n$ points $x_i$ and weights $w_i$ satisfy the degree of precision is $2n-1$, then the intergation formula is called Gaussian Quadrature.
+
+</State>
 
 ### Legendre-Gauss Quadrature
 
@@ -142,7 +172,7 @@ The idea is picking $x_i$ as the roots of Legendre polynomial $P_n(x)$. In this 
 
 To make life easier, we can normalize the interval to $[-1, 1]$. This do no harm to the generality of the formula.
 
-**Proof**
+<Proof>
 
 Let $f(x)$ be a polynomial of degree $2n-1$. Then $f(x) = P_n(x)g(x) + r(x)$, where $g(x)$, $r(x)$ are two polynomial of degree less than $n$.
 
@@ -158,7 +188,7 @@ By the previous theorem, we know that the the integration formula is at least fo
 
 Since the degree of precision is at most $2n-1$, the degree of precision is exactly $2n-1$.
 
-$\square$
+</Proof>
 
 The error term is
 $$
@@ -166,7 +196,7 @@ E(f) = \dfrac{f^{(2n)}(\xi)}{(2n)!}\int_{-1}^1 \prod_{i=1}^n (x - x_i)^2 dx = \d
 $$
 where $\pi(x) = \prod_{i=1}^n (x - x_i)$.
 
-**Proof**
+<Proof>
 
 Consider Hermite Interpolation Polynomial $H(x)$ of $f(x)$ at $x_i$.
 
@@ -197,9 +227,11 @@ f(x) = H(x) + \dfrac{f^{(2n)}(\xi)}{(2n)!}(\pi(x))^2 \\
 \int_{-1}^1 f(x) dx = \sum_{i=1}^n w_i f(x_i) + \dfrac{f^{(2n)}(\xi)}{(2n)!}\int_{-1}^1 (\pi(x))^2 dx
 $$
 
-$\square$
+</Proof>
 
 ### Weights of Legendre-Gauss Quadrature
+
+<State variant="theorem">
 
 The weights of Legendre-Gauss Quadrature can be calculated by the following formula.
 
@@ -207,7 +239,9 @@ $$
 w_i = \int_{-1}^1 (\pi(x))^2 = \dfrac{2}{(1 - x_i^2)[P_n'(x_i)]^2}
 $$
 
-**Proof**
+</State>
+
+<Proof>
 
 We first find $\pi'(x)$ and $\pi'(x_i)$ for $i = 1, 2, \cdots, n$.
 
@@ -275,7 +309,7 @@ w_i = \int_{-1}^1 (l_i(x))^2 dx = -\dfrac{2}{(1 - x_i^2)(P_n'(x_i))^2} + 2w_i\\
 w_i = \dfrac{2}{(1 - x_i^2)(P_n'(x_i))^2}
 $$
 
-$\square$
+</Proof>
 
 ### Weighted Gaussian Quadrature
 

@@ -78,4 +78,13 @@
 	#klpbg.hide {
 		display: none;
 	}
+
+	@media print {
+		#topbar {
+			display: none;
+		}
+		#klpbg {
+			display: none;
+		}
+	}
 </style>

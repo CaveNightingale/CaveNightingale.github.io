@@ -47,8 +47,9 @@ function toSnakeCategory(category) {
 
 function scanNotes() {
 	let root = 'src/routes/note';
-	let lastGeneratedTime = fs.existsSync('src/lib/generated/topic-list.json') ? fs.statSync('src/lib/generated/topic-list.json').mtimeMs : 0;
-	let lastSourceTime = 0;
+	let output = 'src/lib/generated/topic-list.json';
+	let lastGeneratedTime = fs.existsSync(output) ? fs.statSync(output).mtimeMs : 0;
+	let lastSourceTime = fs.statSync(root).mtimeMs;
 
 	let res = {};
 	for (let file of fs.readdirSync(root)) {
@@ -77,7 +78,7 @@ function scanNotes() {
 	let json = Object.values(res);
 	json.sort((a, b) => a.title.localeCompare(b.title));
 	let str = JSON.stringify(json);
-	fs.writeFileSync('src/lib/generated/topic-list.json', str);
+	fs.writeFileSync(output, str);
 }
 
 const config = {

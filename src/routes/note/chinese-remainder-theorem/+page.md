@@ -2,9 +2,13 @@
 category: Number Theory
 ---
 
+<script lang="ts">
+	import State from "$lib/component/content/State.svelte";
+	import Proof from "$lib/component/content/Proof.svelte";
+</script>
+
 # Chinese Remainder Theorem (CRT)
 
-## Definition
 CRT is a theorem that gives a unique solution to simultaneous linear congruences with pairwise coprime moduli.
 
 $$
@@ -33,9 +37,13 @@ To prove CRT, we are going to two things:
 - $x \equiv \sum_{i = 1}^{n} a_i M_i y_i \pmod M$ is a solution
 - There is no other solution under modulo $M$
 
-## Lemma. $a$ has a multiplicative inverse modulo $m$ if and only if $\operatorname{gcd}(a, m) = 1$
+<State variant="lemma">
 
-**Proof**
+$a$ has a multiplicative inverse modulo $m$ if and only if $\operatorname{gcd}(a, m) = 1$
+
+</State>
+
+<Proof>
 
 Let the inverse be $r$
 
@@ -43,15 +51,19 @@ $ra \equiv 1 \pmod m$ implies $ra + km = 1$ for some integer $k$.
 
 According to Bezout's Lemma, $\operatorname{gcd}(a, m) = 1$.
 
-$\square$
+</Proof>
 
-## 1. $x \equiv \sum_{i = 1}^{n} a_i M_i y_i \pmod M$ is a solution
+<State>
+
+$x \equiv \sum_{i = 1}^{n} a_i M_i y_i \pmod M$ is a solution
+
+</State>
+
+<Proof>
 
 Since $m_1, m_2, ... m_n$ are pairwise coprime, we have $\operatorname{gcd}(m_i, m_j) = 1$ for all $i \neq j$.
 
 Then for each $j$ from $1$ to $n$, we have $M_j = \prod_{i = 1, i \neq j}^{n} m_i$ is coprime to $m_j$, which means $M_j$ has a multiplicative inverse modulo $m_j$.
-
-**Proof**
 
 For each $j$ from $1$ to $n$, we have
 
@@ -69,9 +81,15 @@ $$
 
 So the equation holds.
 
-$\square$
+</Proof>
 
-## 2. There is no other solution under modulo $M$
+<State>
+
+There is no other solution under modulo $M$
+
+</State>
+
+<Proof>
 
 Suppose there are two solutions $x_1$ and $x_2$.
 
@@ -81,4 +99,4 @@ As $m_1, m_2, ... , m_n$ are pairwise coprime, $\operatorname{lcm}(m_1, m_2, ...
 
 Hence, $x_1 \equiv x_2 \pmod M$.
 
-$\square$
+</Proof>
