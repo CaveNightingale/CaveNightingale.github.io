@@ -112,11 +112,11 @@ Only $f(n_1n_2)$ is out of the induction hypothesis, so we apply the multiplicat
 
 $$
 = \sum_{d_1 | n_1} \sum_{d_2 | n_2} f(d_1)f(d_2) - f(n_1)(n_2) + f(n_1n_2) \\
-= \left(\sum_{d_1 | n_1} f(d_1)\right) \left(\sum_{d_2 | n_2} f(d_2)\right) - f(n_1)g(n_2) + f(n_1n_2) \\
-= g(n_1)g(n_2) - f(n_1)g(n_2) + f(n_1n_2) \\
+= \left(\sum_{d_1 | n_1} f(d_1)\right) \left(\sum_{d_2 | n_2} f(d_2)\right) - f(n_1)f(n_2) + f(n_1n_2) \\
+= g(n_1)g(n_2) - f(n_1)f(n_2) + f(n_1n_2) \\
 $$
 
-Move $g(n_1)g(n_2)$ to the left side.
+Move $g(n_1)g(n_2)$ to the left hand side.
 
 $$
 g(n) - g(n_1)g(n_2) = f(n_1n_2) - f(n_1)f(n_2) \\

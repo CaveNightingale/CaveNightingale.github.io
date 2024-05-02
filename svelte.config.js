@@ -81,6 +81,18 @@ function scanNotes() {
 	fs.writeFileSync(output, str);
 }
 
+function patchJsGraphs() { // Fix the jsgraphs import bug
+	let from = "import { ERROR_MSG_EDGE_NOT_FOUND } from '../common/errors';";
+	let to = "import { ERROR_MSG_EDGE_NOT_FOUND } from '../common/errors.mjs';";
+	let path = 'node_modules/@mlarocca/jsgraphs/src/graph/graph.mjs';
+	let content = fs.readFileSync(path, 'utf-8');
+	if (content.includes(from)) {
+		fs.writeFileSync(path, content.replace(from, to));
+	}
+}
+
+patchJsGraphs();
+
 const config = {
 	extensions: [".svelte", ...mdsvexConfig.extensions],
 

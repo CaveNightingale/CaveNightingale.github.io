@@ -5,16 +5,16 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const config = defineConfig({
-  extensions: [".svelte.md", ".md", ".svx"],
+	extensions: [".svelte.md", ".md", ".svx"],
 
-  smartypants: {
-    dashes: "oldschool",
-  },
+	smartypants: {
+		dashes: "oldschool",
+	},
 
-  layout: "./src/lib/note/layout.svelte",
+	layout: "./src/lib/note/layout.svelte",
 
-  remarkPlugins: [remarkMath],
-  rehypePlugins: [rehypeKatexSvelte, rehypeSlug, rehypeAutolinkHeadings],
+	remarkPlugins: [remarkMath],
+	rehypePlugins: [rehypeKatexSvelte, rehypeSlug, rehypeAutolinkHeadings],
 });
 
 export default config;

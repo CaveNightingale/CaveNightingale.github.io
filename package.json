@@ -26,9 +26,11 @@
   },
   "type": "module",
   "dependencies": {
+    "@mlarocca/jsgraphs": "^0.2.1",
     "@sveltejs/adapter-static": "^2.0.2",
     "diff": "^5.1.0",
     "gl-matrix": "^3.4.3",
+    "mathjs": "^12.4.2",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0"
   }

@@ -185,7 +185,7 @@ function render(tokens: Token[]): string {
 			}) + " ";
 			for (let [func, id] of func2id) {
 				let dom = func.split('-')
-					.map(part => `${(escape(part.at(0) || '').toUpperCase())}<span style="font-size: 0.8em;">${escape(part.slice(1).toUpperCase())}</span>`)
+					.map(part => `${(part.at(0) || '').toUpperCase()}<span style="font-size: 0.8em;">${part.slice(1).toUpperCase()}</span>`)
 					.join('-');
 				str = str.replaceAll(id, `<span>${dom}</span>`);
 			}

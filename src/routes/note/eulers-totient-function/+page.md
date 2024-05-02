@@ -111,13 +111,11 @@ $\varphi(n) = n\prod_{p|n}(1 - \frac{1}{p})$
 Let a positive number $n = \prod_{i = 1}^k p_i^{a_i}$ where $p_i$ are distinct primes and $a_i$ are positive integers.
 
 $$
-\begin{gather*}
 \varphi(n) \\
 = \varphi(\prod_{i = 1}^k p_i^{a_i}) \\
 = \prod_{i = 1}^k \varphi(p_i^{a_i}) \\
 = \prod_{i = 1}^k p_i^{a_i} - p_i^{a_i - 1} \\
 = n\prod_{i = 1}^k(1 - \frac{1}{p_i})
-\end{gather*}
 $$
 
 </Proof>
@@ -155,11 +153,9 @@ Let $B = \{b_1, b_2, \dots, b_{\varphi(n)}\}$ be the set of numbers less than $n
 
 Assume that there are two such numbers $b_i$ and $b_j$ such that $a b_i \equiv a b_j \pmod{n}$ and $b_i \neq b_j$.
 $$
-\begin{gather*}
-a b_i &\equiv a b_j \pmod{n} \\
-a b_i - a b_j &\equiv 0 \pmod{n} \\
-a (b_i - b_j) &\equiv 0 \pmod{n}
-\end{gather*}
+a b_i \equiv a b_j \pmod{n} \\
+a b_i - a b_j \equiv 0 \pmod{n} \\
+a (b_i - b_j) \equiv 0 \pmod{n}
 $$
 
 Since $a$ and $n$ are coprime, $n | a (b_i - b_j)$ gives $n | b_i - b_j$ or $b_i \equiv b_j \pmod{n}$, which contradicts with the assumption that $b_i \neq b_j$.
@@ -170,11 +166,9 @@ Therefore, $\{a b_1, a b_2, \dots, a b_{\varphi(n)}\}$ is a permutation of $B$.
 
 Hence,
 $$
-\begin{gather*}
-\prod_{i = 1}^{\varphi(n)} ab_i &\equiv \prod_{i = 1}^{\varphi(n)} b_i \pmod{n} \\
-a^{\varphi(n)} \prod_{i = 1}^{\varphi(n)} b_i &\equiv \prod_{i = 1}^{\varphi(n)} b_i \pmod{n} \\
-a^{\varphi(n)} &\equiv 1 \pmod{n}
-\end{gather*}
+\prod_{i = 1}^{\varphi(n)} ab_i \equiv \prod_{i = 1}^{\varphi(n)} b_i \pmod{n} \\
+a^{\varphi(n)} \prod_{i = 1}^{\varphi(n)} b_i \equiv \prod_{i = 1}^{\varphi(n)} b_i \pmod{n} \\
+a^{\varphi(n)} \equiv 1 \pmod{n}
 $$
 
 </Proof>
@@ -235,11 +229,9 @@ $x ^ 2 \equiv 1 \pmod{p}$  has only 2 solutions where $p$ is a odd prime, and th
 <Proof>
 
 $$
-\begin{gather*}
 x ^ 2 \equiv 1 \pmod{p} \\
 x ^ 2 - 1 \equiv 0 \pmod{p} \\
 (x - 1)(x + 1) \equiv 0 \pmod{p}
-\end{gather*}
 $$
 
 Since $p$ is a prime, $p | (x - 1)(x + 1)$ gives $p | x - 1$ or $p | x + 1$.
@@ -258,11 +250,8 @@ Thus, we can pair up each number in $B$ with its inverse modulo $p$ except $1$ a
 
 Therefore, we have
 $$
-\begin{gather*}
 \prod_{i = 1}^{p - 1} i \equiv 1 \cdot (p - 1) \equiv -1 \pmod{p} \\
 (p - 1)! \equiv -1 \pmod{p}
-\end{gather*}
-
 $$
 
 </Proof>
@@ -297,7 +286,7 @@ Therefore, $(p - 1)! \equiv (p - 1)(p - 2)! \not\equiv -1 \pmod{p}$.
 
 <State variant="algorithm" name="Euler's Sieve">
 
-Euler's Sieve is an algorithm to calculate $\varphi(x)$ for all $x \leq n$ and give the list of prime numbers less than $n$ in $O(n)$ time.
+Euler's Sieve is an algorithm to calculate $\varphi(x)$ for all $x \leq n$ and give the list of prime numbers less than $n$ in $O(n)$ time. Notice that this algorithm can be use on any multiplicative function with slightly modification.
 
 <Algor>
 

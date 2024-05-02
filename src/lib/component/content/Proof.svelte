@@ -29,7 +29,7 @@
 		position: relative;
 	}
 
-	span.child > :global(:first-child) {
+	span.child > :global(p:first-child) {
 		display: inline;
 	}
 

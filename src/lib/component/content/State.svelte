@@ -24,7 +24,7 @@
 		padding-right: 1em;
 	}
 
-	span > :global(:first-child) {
+	span > :global(p:first-child) {
 		display: inline;
 	}
 </style>
