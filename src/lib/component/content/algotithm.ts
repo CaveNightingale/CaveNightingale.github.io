@@ -109,22 +109,13 @@ function tokenize(input: string, replace: boolean = true): Token[] {
 		result.push(nextToken());
 		skip();
 	}
-	let final = [];
-	let prevLine = [true, true];
-	for (let item of result) { // Strip out 2-consecutive empty lines
-		if (item.kind === "symbol" && item.value === "newline" && prevLine[0] && prevLine[1]) {
-			continue;
-		}
-		if (item.kind !== "symbol" || item.value === "newline") {
-			prevLine[0] = prevLine[1];
-			prevLine[1] = item.kind === "symbol" && item.value === "newline";
-		}
-		final.push(item);
+	while (result.length > 0 && result[result.length - 1].kind === "symbol" && result[result.length - 1].value === "newline") {
+		result.pop();
 	}
-	while (final.length > 0 && final[final.length - 1].kind === "symbol" && final[final.length - 1].value === "newline") {
-		final.pop();
+	while (result.length > 0 && result[0].kind === "symbol" && result[0].value === "newline") {
+		result.shift();
 	}
-	return final;
+	return result;
 }
 
 function render(tokens: Token[]): string {
@@ -138,27 +129,25 @@ function render(tokens: Token[]): string {
 	let line = 0;
 	let indent = 0;
 	let newline = true;
-	let nosymbol = true;
+	let emptyline = false;
 	for (let token of tokens) {
 		if (token.kind === "symbol") {
 			if (token.value === "newline") {
-				if (newline && !nosymbol) {
+				if (newline && !emptyline) {
+					emptyline = true;
 					continue;
 				}
 				line++;
 				result += "<br /> ";
 				newline = true;
-				nosymbol = true;
 			} else if (token.value === "indent") {
 				if (indent === 0) {
 					line = 0;
 				}
 				result += ": "; // Python style
 				indent++;
-				nosymbol = false;
 			} else {
 				indent--;
-				nosymbol = false;
 			}
 		} else if (token.kind === "expression") {
 			if (indent !== 0 && newline) {
@@ -207,6 +196,7 @@ function render(tokens: Token[]): string {
 			result += `<b>${escape(token.value)}</b> `;
 		}
 		newline = newline && token.kind === "symbol";
+		emptyline = token.kind === "symbol" && token.value === "newline";
 	}
 	return result;
 }

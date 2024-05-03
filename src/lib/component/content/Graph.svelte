@@ -88,7 +88,6 @@
 					this.prevWidth,
 					this.prevHeight,
 				);
-				console.log(vertices, edges);
 				let numeric = 1;
 				for (let v of vertices) {
 					v.label = v.label || `${numeric++}`;
@@ -149,7 +148,7 @@
 						"http://www.w3.org/2000/svg",
 						"foreignObject",
 					);
-					let content = katex.renderToString(t.textContent);
+					let content = katex.renderToString(t.textContent.replaceAll("'", "\\").replaceAll("$", ""));
 					let { width, height } = size(content);
 					dom.setAttribute("x", t.getAttribute("x") - width / 2);
 					dom.setAttribute("y", t.getAttribute("y") - height / 2);

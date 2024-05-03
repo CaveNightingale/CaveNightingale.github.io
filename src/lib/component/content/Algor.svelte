@@ -27,11 +27,11 @@
 			}
 
 			recompile() {
-				console.log(this.innerHTML)
 				const code = this.textContent || "";
 				if (code === this.code) {
 					return;
 				}
+				console.log(code);
 				const compiled = compile(code);
 				this.code = code;
 				this.root.innerHTML = compiled + KATEX_COMMON;

@@ -27,7 +27,6 @@ function toXY(num: any): [number, number] {
 }
 
 function evaluate(str: string, width: number, height: number): [Vertex[], Edge[]] {
-	console.log(str, width, height);
 	let vertices: Vertex[] = [];
 	let edges: Edge[] = [];
 	function vertex(scope: Record<string, any>, pos: any, label: any, className: any) {
