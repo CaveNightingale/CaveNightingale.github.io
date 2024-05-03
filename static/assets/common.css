@@ -12,6 +12,22 @@
 	border-radius: 0.5em;
 	display: flex;
 	justify-content: center;
+	flex-direction: column;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.algorithm-container > div {
+	white-space: nowrap;
+}
+
+.graph-container > div {
+	min-width: 450px;
+}
+
+.katex-display {
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
 @media screen and (min-width: 1200px) {
