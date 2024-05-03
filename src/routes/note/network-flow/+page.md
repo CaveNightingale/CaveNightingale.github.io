@@ -341,15 +341,15 @@ $'fn{dfs}(u, f, t)$ [
 	return $r$
 ]
 
-# G is the network, c is the capacity function, s is the source, t is the sink
+# d is the digraph of the network, c is the capacity function, s is the source, t is the sink
 # Return the maximum flow and the flow function
-$'fn{dinic}(digraph, c, s, t)$ [
+$'fn{dinic}(d, c, s, t)$ [
 	$vertices = 'varnothing$
 	$edges = 'varnothing$
-	for $u$ in $digraph.vertices$ [
+	for $u$ in $d.vertices$ [
 		$vertices(u) = $ new $'text{Vertex}'{level: -1, edges: 'varnothing, current: 0'}$
 	]
-	for $e$ in $digraph.edges$ [
+	for $e$ in $d.edges$ [
 		$u = vertices(e.u)$
 		$v = vertices(e.v)$
 		$proper = $ new $'text{Edge}'{v: v, cap: c(e), rev: $null$'}$
@@ -369,7 +369,7 @@ $'fn{dinic}(digraph, c, s, t)$ [
 		$flow += 'fn{dfs}(s, +'infty, t)$
 	]
 	$f = 'varnothing$
-	for $e$ in $digraph.edges$ [
+	for $e$ in $d.edges$ [
 		$f(e) = edges(e).rev.cap$
 	]
 	return $flow, f$

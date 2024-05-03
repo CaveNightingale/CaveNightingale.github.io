@@ -3,6 +3,7 @@ import mdsvexConfig from "./mdsvex.config.js";
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/kit/vite";
 import fs from "fs";
+import path from "path";
 
 
 /**
@@ -48,6 +49,9 @@ function toSnakeCategory(category) {
 function scanNotes() {
 	let root = 'src/routes/note';
 	let output = 'src/lib/generated/topic-list.json';
+	if (!fs.existsSync(path.dirname(output))) {
+		fs.mkdirSync(path.dirname(output), { recursive: true });
+	}
 	let lastGeneratedTime = fs.existsSync(output) ? fs.statSync(output).mtimeMs : 0;
 	let lastSourceTime = fs.statSync(root).mtimeMs;
 
