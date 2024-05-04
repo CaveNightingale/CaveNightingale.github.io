@@ -58,11 +58,11 @@
 			}
 
 			get _height() {
-				return Number(this.getAttribute("height"));
+				return +this.getAttribute("height");
 			}
 
 			get _width() {
-				return Math.min(Number(this.getAttribute("width")), this.clientWidth);
+				return Math.min(+this.getAttribute("width"), this.clientWidth);
 			}
 
 			recompile() {
@@ -82,7 +82,9 @@
 				this.prevWidth = this._width;
 				this.prevHeight = this._height;
 				this.prevDirected = this._directed;
-				let graph = this._directed ? new Graph() : new UndirectedGraph();
+				let graph = this._directed
+					? new Graph()
+					: new UndirectedGraph();
 				let [vertices, edges] = evaluate(
 					this.prevCode,
 					this.prevWidth,
@@ -120,7 +122,9 @@
 						displayEdgesWeight: false,
 						displayEdgesLabel: true,
 						drawEdgesAsArcs: true,
-					}) + GRAPH_COMMON + KATEX_COMMON;
+					}) +
+					GRAPH_COMMON +
+					KATEX_COMMON;
 				// Post-process
 				// Double line
 				let doubleCircle = this.root.querySelectorAll(".double circle");
@@ -133,6 +137,12 @@
 					c.parentNode.insertBefore(newCircle, c);
 				}
 				let text = this.root.querySelectorAll("text");
+				let textGroup = document.createElementNS(
+					"http://www.w3.org/2000/svg",
+					"g",
+				);
+				textGroup.setAttribute("class", "text");
+				this.root.querySelector("svg").appendChild(textGroup);
 				for (let t of [...text]) {
 					const size = (content) => {
 						let div = document.createElement("div");
@@ -144,27 +154,34 @@
 						this.root.removeChild(div);
 						return ret;
 					};
-					let dom = document.createElementNS(
-						"http://www.w3.org/2000/svg",
-						"foreignObject",
+					let content = katex.renderToString(
+						t.textContent.replaceAll("'", "\\").replaceAll("$", ""),
 					);
-					let content = katex.renderToString(t.textContent.replaceAll("'", "\\").replaceAll("$", ""));
 					let { width, height } = size(content);
-					dom.setAttribute("x", t.getAttribute("x") - width / 2);
-					dom.setAttribute("y", t.getAttribute("y") - height / 2);
-					dom.setAttribute("width", width);
-					dom.setAttribute("height", height);
-					dom.setAttribute(
-						"text-anchor",
-						t.getAttribute("text-anchor"),
-					);
-					dom.setAttribute(
-						"dominant-baseline",
-						t.getAttribute("dominant-baseline"),
-					);
-					dom.innerHTML = `${content}`;
-					t.parentNode.replaceChild(dom, t);
+					let x = +t.getAttribute("x") - width / 2;
+					let y = +t.getAttribute("y") - height / 2;
+					let p = t.parentNode;
+					while (p.tagName !== "svg") {
+						let transform = /translate\(([^,]+),([^,]+)\)/.exec(p.getAttribute("transform"));
+						if (transform) {
+							x += +transform[1];
+							y += +transform[2];
+						}
+						p = p.parentNode;
+					}
+					let span = document.createElement("span");
+					span.innerHTML = content;
+					span.style.position = "absolute";
+					span.style.left = `${x}px`;
+					span.style.top = `${y}px`;
+					span.style.width = `${width}px`;
+					span.style.height = `${height}px`;
+					span.style.display = "inline-block";
+					span.style.whiteSpace = "nowrap";
+					t.parentNode.removeChild(t);
+					this.root.appendChild(span);
 				}
+				this.style.position = "relative";
 				this.pending = false;
 			}
 		}
