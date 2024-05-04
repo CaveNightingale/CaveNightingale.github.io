@@ -34,8 +34,8 @@
 	/>
 	<link rel="stylesheet" href="/assets/common.css" />`;
 
-	if (typeof HTMLDivElement !== "undefined") {
-		class HTMLGraphInnerElement extends HTMLDivElement {
+	if (typeof HTMLElement !== "undefined") {
+		class HTMLGraphInnerElement extends HTMLElement {
 			constructor() {
 				super();
 				this.root = this.attachShadow({ mode: "closed" });
@@ -50,19 +50,19 @@
 				new ResizeObserver(() => this.recompile()).observe(this);
 			}
 
-			get directed() {
+			get _directed() {
 				return (
 					this.hasAttribute("directed") &&
 					this.getAttribute("directed") !== "false"
 				);
 			}
 
-			get height() {
+			get _height() {
 				return Number(this.getAttribute("height"));
 			}
 
-			get width() {
-				return Math.min(this.getAttribute("width"), this.clientWidth);
+			get _width() {
+				return Math.min(Number(this.getAttribute("width")), this.clientWidth);
 			}
 
 			recompile() {
@@ -72,17 +72,17 @@
 				this.pending = true;
 				if (
 					this.textContent === this.prevCode &&
-					this.width === this.prevWidth &&
-					this.height === this.prevWidth &&
-					this.directed === this.prevDirected
+					this._width === this.prevWidth &&
+					this._height === this.prevWidth &&
+					this._directed === this.prevDirected
 				) {
 					return;
 				}
 				this.prevCode = this.textContent || "";
-				this.prevWidth = this.width;
-				this.prevHeight = this.height;
-				this.prevDirected = this.directed;
-				let graph = this.directed ? new Graph() : new UndirectedGraph();
+				this.prevWidth = this._width;
+				this.prevHeight = this._height;
+				this.prevDirected = this._directed;
+				let graph = this._directed ? new Graph() : new UndirectedGraph();
 				let [vertices, edges] = evaluate(
 					this.prevCode,
 					this.prevWidth,
@@ -168,9 +168,7 @@
 				this.pending = false;
 			}
 		}
-		customElements.define("graph-inner", HTMLGraphInnerElement, {
-			extends: "div",
-		});
+		customElements.define("graph-inner", HTMLGraphInnerElement);
 	}
 </script>
 
@@ -190,14 +188,7 @@
 </script>
 
 <div class="graph-container">
-	<!-- svelte-ignore avoid-is -->
-	<div class="inner" is="graph-inner" {directed} {height} {width}>
+	<graph-inner {directed} {height} {width}>
 		<slot></slot>
-	</div>
+	</graph-inner>
 </div>
-
-<style>
-	.inner {
-		line-height: 1em;
-	}
-</style>

@@ -17,12 +17,14 @@
 	overflow-y: hidden;
 }
 
-.algorithm-container > div {
+algorithm-inner {
 	white-space: nowrap;
 }
 
-.graph-container > div {
+graph-inner {
 	min-width: 450px;
+	line-height: 1em;
+	display: block;
 }
 
 .katex-display {

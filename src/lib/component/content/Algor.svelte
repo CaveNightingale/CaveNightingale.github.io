@@ -15,8 +15,8 @@
 	/>
 	<link rel="stylesheet" href="/assets/common.css" />`;
 
-	if (typeof HTMLDivElement !== "undefined") {
-		class HTMLAlgorithmInnerDivElement extends HTMLDivElement {
+	if (typeof HTMLElement !== "undefined") {
+		class HTMLAlgorithmInnerElement extends HTMLElement {
 			private root: ShadowRoot;
 			private code: string;
 
@@ -44,15 +44,12 @@
 			}
 		}
 
-		customElements.define("algorithm-inner", HTMLAlgorithmInnerDivElement, {
-			extends: "div",
-		});
+		customElements.define("algorithm-inner", HTMLAlgorithmInnerElement);
 	}
 </script>
 
 <div class="algorithm-container">
-	<!-- svelte-ignore avoid-is -->
-	<div is="algorithm-inner">
+	<algorithm-inner>
 		<slot></slot>
-	</div>
+	</algorithm-inner>
 </div>
