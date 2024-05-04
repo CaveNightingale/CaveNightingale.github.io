@@ -69,7 +69,7 @@ For non-anti-symmetric digraphs, we can replace $(u, v), (v, u)$ by $(u, v'), (v
 
 For multiple sources and sinks, we can add a new source $s'$, called supersource, and sink $t'$, called supersink, connecting $s'$ to all sources and all sinks to $t'$.
 
-## Agumenting Path and Max-Flow Min-Cut Theorem
+## Argumenting Path and Max-Flow Min-Cut Theorem
 
 <State variant="definition" name="Properly Oriented Edge">
 
@@ -134,7 +134,7 @@ First by the definition of argumenting path, we have $d > 0$.
 
 And by the formula of $d$, for improperly oriented edges, $f^*(e) = f(e) - d > 0$. For properly oriented edges, $f^*(e) = f(e) + d < c(e)$. Other edges are unchanged. Therefore the adjusted flow $f^*$ is a valid flow.
 
-The since the argument path must pass through the source $s$ and sink $t$, the value of the new flow $|f^*| = |f| + d$.
+The since the argumenting path must pass through the source $s$ and sink $t$, the value of the new flow $|f^*| = |f| + d$.
 
 </Proof>
 
