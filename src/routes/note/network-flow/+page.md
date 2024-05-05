@@ -253,21 +253,20 @@ If the equality $|f| = C(P, \overline{P})$ holds for some flow $f$ and cut $(P, 
 
 Obtained from the above reduction when two $\le$ is used in the proof.
 
+But the existence of the maximum flow is not guaranteed in this theorem. Although we will construct a maximum flow in the next section. A common error is to derive the existence of the maximum flow by the fact that the value of the flow is bounded above, which is nonsense since boundedness does not guarantee the existence of the maximum value but only the existence of the supremum.
+
 </Proof>
 
 ## Ford-Fulkerson Method
 
 <State variant="definition" name="Residual Network">
 
-**Resiual Network** $G_f$ of a network $G$ with respect to a flow $f$ is defined as the graph with the same vertices and edges as $G$ and the capacity function $c_f: E \to \mathbb{R}^+$ defined as
+**Residual Network** $G_f$ of a network $G$ with respect to a flow $f$ is defined as the graph with the same vertices and edges are defined as follows:
 
-$$
-c_f(u, v) = \begin{cases}
-c(u, v) - f(u, v) & \text{if } (u, v) \in E\\
-f(v, u) & \text{if } (v, u) \in E\\
-0 & \text{otherwise}
-\end{cases}
-$$
+- For each edge $(u, v) \in E$, if $f(u, v) < c(u, v)$, then add an edge $(u, v)$ with capacity $c(u, v) - f(u, v)$.
+- For each edge $(u, v) \in E$, if $f(u, v) > 0$, then add an edge $(v, u)$ with capacity $f(u, v)$.
+
+The residual network actually tells how much flow can be added or removed from the original network.
 
 </State>
 
@@ -297,7 +296,7 @@ But this does not guarantee the termination of the algorithm. If the capacities 
 
 <State variant="algorithm" name="Dinic's Implementation of Ford-Fulkerson Method">
 
-This algorithm terminates. We will provide the proof later. The time complexity is $O(V^2E)$.
+This algorithm terminates. We will provide the proof later. The time complexity is $O(|V|^2|E|)$.
 
 <Algor>
 
@@ -382,14 +381,77 @@ $'fn{dinic}(d, c, s, t)$ [
 
 <Proof variant="correctness">
 
-To be continued.
+We explain the algorithm first.
+
+The algorithm create a residual network $G_f$ with the same vertices and edges as the original network $G$.
+
+Then it performs a BFS from the source $s$ to the sink $t$ in the residual network $G_f$ to find the level of each vertex. If the sink $t$ is not reachable from the source $s$, the algorithm terminates. Level is assign as the shortest path length from the source $s$.
+
+Then it performs a DFS from the source $s$ to the sink $t$ in the residual network $G_f$ to find the argumenting path. Actually, DFS go back to a vertex that has extra capacity and retry on another edge if the current edge does not exaust the flow instead of directly go back to the source $s$.
+
+And since it's possible to reach the sink $t$ from the source $s$, DFS always makes progress.
+
+As we see this algorithm is an implementation of the Ford-Fulkerson Method. So if it terminates, then it's correct and only thing to prove is the termination.
+
+We define the distance of a vertex $v$ from the source $s$ as the level of $v$. And the subgraph of the residual network $G_f$ with vertices with level is denoted as $G_L$, where $V(G_L) = V(G_f)$ and $E(G_L) = \{(u, v) \in E(G_f) | u.level = v.level - 1\}$. It's easy to see that DFS exhausts the flow in $G_L$ before relabeling the vertices.
+
+We want to prove that the level of sink $t$ is strictly increasing in each iteration of the BFS. Since the levels are integers and bounded by $|V|$, this lead to the conclusion that the number of iterations is finite and bounded by $|V|$.
+
+Let'ss define the concept of height label $h$. A function $h: V \to \mathbb{N}$ is a height label if $h(s) = |V|$ and $h(u) \le h(v) + 1$ for all $(u, v) \in E(G_f)$.
+
+Let the level before relabeling be $d$ and the level after relabeling be $d'$. Consider all element $(u, v)$ in $E_{f'}$.
+
+- If $(u, v) \in E_f$, that means the capacity of $(u, v)$ is not exhausted. Therefore $d(v) \le d(u) + 1$ from the definition of shortest path.
+- If $(u, v) \notin E_f$, that means the edge is added because the reverse edge is used. Therefore $d(u) = d(v) - 1$.
+
+Therefore, the level $h$ found in previous BFS is a height label in $G_{f'}$ and of course in $G_{L'}$.
+
+Consider an argumenting path $P = (s, v_1, v_2, \dots, v_n, t)$ in $G_{L'}$. Obviously $d'(t)$ is the length of the path. And since $d$ is a valid height label on $G_{L'}$, we have $d(v_{i + 1}) \le d(v_{i}) + 1$. Sum them up for all vertices in the path, we have $d(t) \le d(s) + d'(t)$ or simply $d(t) \le d'(t)$ since $d(s) = 0$.
+
+But we are going to show that the equality never holds. Suppose the equality holds, then there is an argumenting path $P$ in $G_{L'}$ with length $d(t)$.
+
+There should be an edge that does not exists in $G_f$ but in path $P$. Otherwise, since the equality holds, all edges in the path are make up of a pair of vertices with level difference $1$, which means the path is also in $G_L$. But this contradicts the fact that the flow is exhausted in $G_L$ before relabeling.
+
+Let's say the edge in $P$ that does not exists in $G_f$ is $(u, v)$. Since the equality $d(v) = d(u) + 1$ holds, the edge should be in $G_L$ if it exists in $G_f$. Hence the edge does not exists in $G_f$, which gives that $(u, v)$ is added because the reverse edge is used. Therefore, the edge $(v, u)$ is in $G_L$. But this derives $d(v) = d(u) - 1$ and not $d(v) = d(u) + 1$, which is a contradiction.
+
+Therefore, $d(t) < d'(t)$ or in another word the level of the sink $t$ is strictly increasing in each iteration of the BFS.
+
+Since the level of the sink $t$ is strictly increasing, the length of the path is strictly increasing. Therefore, the number of iterations is finite and bounded by $|V|$.
+
+Therefore the algorithm terminates.
 
 </Proof>
 
-## Min-Cost Flow
+<State variant="collary">
+
+The Max-Flow exists.
+
+</State>
+
+<Proof>
+
+Combine the fact that Dinic's Algorithm terminates and previous theorem that the flow is maximum if the algorithm terminates.
+
+</Proof>
+
+We continue the proof of Dinic's Algorithm now.
+
+<Proof variant="time">
+
+For each DFS attempt, it either make some progress or find somewhere with capacity $0$. For the case that it make progress, it clear the capacity of at least one edge, and by the property of $G_L$, the reverse edge is never used, which gives that the capacity never recover before relabeling. For the case that it find somewhere with capacity $0$, it moves the $current$ pointer from the edge with $0$ capacity to the next edge, which gives that the edge with $0$ capacity is never visited again. Therefore we make $O(|E|)$ attempts to find an argumenting path.
+
+The depth of each attempt is at most the number of vertices $|V|$.
+
+Therefore, the DFS operation between two consecutive BFS operations takes $O(|V||E|)$ time.
+
+Combine the previous proof that the number of BFS operations is $O(|V|)$, we have the total time complexity is $O(|V|^2|E|)$.
+
+</Proof>
+
+## Bipartite Matching
 
 To be continued.
 
-## Bipartite Matching
+## Min-Cost Flow
 
 To be continued.

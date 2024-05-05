@@ -26,11 +26,9 @@ x \equiv \sum_{i = 1}^{n} a_i M_i y_i \pmod M
 $$
 where
 $$
-\begin{gather}
 M \equiv \prod_{i = 1}^{n} m_i \\
 M_i \equiv {M \over m_j} \\
 y_i \equiv M_i^{-1} \pmod {m_i}
-\end{gather}
 $$
 
 To prove CRT, we are going to two things:
