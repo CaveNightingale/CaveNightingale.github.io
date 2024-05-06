@@ -21,6 +21,9 @@
 		.dark > circle {
 			fill: gray;
 		}
+		.bold > path {
+			stroke-width: 3;
+		}
 		path {
 			fill: none;
 			stroke: black;
@@ -43,6 +46,7 @@
 
 			connectedCallback() {
 				this.recompile();
+				setTimeout(() => this.recompile(), 500);
 				new MutationObserver(() => this.recompile()).observe(this, {
 					childList: true,
 					subtree: true,
@@ -115,9 +119,14 @@
 				for (let v of vertices) {
 					verticesClasses[v._inner] = v.class ? [v.class] : [];
 				}
+				let edgesClasses = {};
+				for (let e of edges) {
+					edgesClasses[e._inner.id] = e.class ? [e.class] : [];
+				}
 				this.root.innerHTML =
 					emb.toSvg(this.prevWidth, this.prevHeight, {
 						graphCss: [],
+						edgesCss: edgesClasses,
 						verticesCss: verticesClasses,
 						displayEdgesWeight: false,
 						displayEdgesLabel: true,

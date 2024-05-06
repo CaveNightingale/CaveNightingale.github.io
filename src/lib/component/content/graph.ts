@@ -12,6 +12,7 @@ interface Edge {
 	v: Vertex;
 	label?: string;
 	control?: number;
+	class?: string;
 }
 
 function toXY(num: any): [number, number] {
@@ -31,28 +32,28 @@ function evaluate(str: string, width: number, height: number): [Vertex[], Edge[]
 	let edges: Edge[] = [];
 	function vertex(scope: Record<string, any>, pos: any, label: any, className: any) {
 		let [x, y] = toXY(pos);
-		let v = { x, y, label: label?.toString(), class: className };
+		let v = { x, y, label: label?.toString(), class: className?.toString() };
 		vertices.push(v);
 		if (scope[label] === undefined) {
-			scope[label] = v; 
+			scope[label] = v;
 		}
 		return v;
 	}
-	function edge(scope: Record<string, any>, u: Vertex, v: Vertex, label: any, control: any) {
+	function edge(scope: Record<string, any>, u: Vertex, v: Vertex, label: any, control: any, className: any) {
 		if (control !== undefined && typeof control !== "number") {
 			throw new Error("Control point must be a number");
 		}
-		let e = { u, v, label: label?.toString(), control: control };
+		let e = { u, v, label: label?.toString(), control: control, class: className?.toString() };
 		edges.push(e);
 		if (label !== "" && scope[label] === undefined) {
-			scope[label] = e; 
+			scope[label] = e;
 		}
 		return e;
 	}
 	let scope: Record<string, any> = { width, height };
 	scope.vertex = (pos: any, label: any, className: any) => vertex(scope, pos, label, className);
 	scope.node = scope.vertex;
-	scope.edge = (u: Vertex, v: Vertex, label: any, control: any) => edge(scope, u, v, label, control);
+	scope.edge = (u: Vertex, v: Vertex, label: any, control: any, className: any) => edge(scope, u, v, label, control, className);
 	math.evaluate(str, scope);
 	return [vertices, edges];
 }

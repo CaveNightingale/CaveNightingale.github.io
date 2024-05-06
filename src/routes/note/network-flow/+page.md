@@ -448,7 +448,106 @@ Combine the previous proof that the number of BFS operations is $O(|V|)$, we hav
 
 </Proof>
 
+<State variant="property">
+
+For any integer-valued capacity function, Dinic's Algorithm gives an integer-valued maximum flow.
+
+</State>
+
+<Proof>
+
+We see that Dinic's Algorithm only uses $+, -, \min$ operations, and the closure property of integers under these operations gives the result.
+
+</Proof>
+
 ## Bipartite Matching
+
+Bipartite matching problem is a special case of network flow problem. Let describe the problem formally first.
+
+<State variant="definition">
+
+Given a bipartite graph $G = (U, V, E)$, where $U$ and $V$ are two disjoint sets of vertices and $E$ is the set of edges connecting vertices in $U$ and $V$. The **bipartite matching** is a subset of edges $M \subseteq E$ such that no two edges in $M$ share a common vertex.
+
+</State>
+
+<State variant="example">
+
+<Graph>
+
+```
+node(100 + 75i, "u_1");
+node(200 + 75i, "u_2");
+node(300 + 75i, "u_3");
+node(400 + 75i, "u_4");
+node(50 + 225i, "v_1");
+node(150 + 225i, "v_2");
+node(250 + 225i, "v_3");
+node(350 + 225i, "v_4");
+node(450 + 225i, "v_5");
+edge(u_1, v_1);
+edge(u_1, v_2, "", 0, "bold");
+edge(u_2, v_2);
+edge(u_2, v_4, "", 0, "bold");
+edge(u_3, v_3);
+edge(u_3, v_1, "", 0, "bold");
+edge(u_3, v_5);
+edge(u_4, v_2);
+edge(u_4, v_3, "", 0, "bold");
+edge(u_4, v_5);
+```
+
+</Graph>
+
+To make things clear, we draw the source $s$ and sink $t$ explicitly. All edges have capacity $1$ and is from top to bottom. Bold edges are the edges in the bipartite matching, or in another word, the edges with flow $1$. And for any integer-valued flow, there is a corresponding bipartite matching $M = \{(u, v) \in E| f(u, v) = 1\}$.
+
+<Graph>
+
+<!--
+Notice that dictionary order is required for edge (u, v) in jsGraph library.
+Actually I hate this.
+-->
+```
+node(250 + 25i, "s");
+node(100 + 75i, "u_1");
+node(200 + 75i, "u_2");
+node(300 + 75i, "u_3");
+node(400 + 75i, "u_4");
+node(50 + 225i, "v_1");
+node(150 + 225i, "v_2");
+node(250 + 225i, "v_3");
+node(350 + 225i, "v_4");
+node(450 + 225i, "v_5");
+node(250 + 275i, "t");
+edge(s, u_1, "", 0, "bold");
+edge(s, u_2, "", 0, "bold");
+edge(s, u_3, "", 0, "bold");
+edge(s, u_4, "", 0, "bold");
+edge(u_1, v_1);
+edge(u_1, v_2, "", 0, "bold");
+edge(u_2, v_2);
+edge(u_2, v_4, "", 0, "bold");
+edge(u_3, v_3);
+edge(u_3, v_1, "", 0, "bold");
+edge(u_3, v_5);
+edge(u_4, v_2);
+edge(u_4, v_3, "", 0, "bold");
+edge(u_4, v_5);
+edge(t, v_1, "", 0, "bold");
+edge(t, v_2, "", 0, "bold");
+edge(t, v_3, "", 0, "bold");
+edge(t, v_4, "", 0, "bold");
+edge(t, v_5);
+```
+
+</Graph>
+
+</State>
+
+<State variant="theorem">
+
+Dinic's Algorithm can terminate in $O(\sqrt{|V|}|E|)$ time for bipartite matching problem.
+
+</State>
 
 To be continued.
 
