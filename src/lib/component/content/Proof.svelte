@@ -17,7 +17,7 @@
 	<span class="child">
 		<slot />
 	</span>
-	<span class="qed">⯀</span>
+	<span class="qed">■</span>
 </div>
 
 <style>

@@ -472,7 +472,7 @@ Given a bipartite graph $G = (U, V, E)$, where $U$ and $V$ are two disjoint sets
 
 <State variant="example">
 
-<Graph>
+<Graph width={500}>
 
 ```
 node(100 + 75i, "u_1");
@@ -500,7 +500,7 @@ edge(u_4, v_5);
 
 To make things clear, we draw the source $s$ and sink $t$ explicitly. All edges have capacity $1$ and is from top to bottom. Bold edges are the edges in the bipartite matching, or in another word, the edges with flow $1$. And for any integer-valued flow, there is a corresponding bipartite matching $M = \{(u, v) \in E| f(u, v) = 1\}$.
 
-<Graph>
+<Graph width={500}>
 
 <!--
 Notice that dictionary order is required for edge (u, v) in jsGraph library.
@@ -549,7 +549,17 @@ Dinic's Algorithm can terminate in $O(\sqrt{|V|}|E|)$ time for bipartite matchin
 
 </State>
 
-To be continued.
+<Proof>
+
+Since $c$ is constant $1$ for all edges, a visit to an edge either clear the capacity or find it has capacity $0$. Therefore, in a DFS between two BFS operations, the number of edges visited is at most $|E|$. Therefore, the time complexity for each DFS is $O(|E|)$.
+
+Meanwhile, the flow in arbitrary iteration is integer-valued, it gives that the flow can be divide into several vertices-disjoint paths except the source $s$ and sink $t$ because if two paths share a vertex, there every vertices either only an in-degree (from the source $s$) or only an out-degree (to the sink $t$) with capacity $1$ and two paths violate the capacity constraint.
+
+Consider we have relabeled the vertices $\sqrt{|V|}$ times, the number of vertices-disjoint paths is at least $\sqrt{|V|}$. According to the strictly increasing level of the sink $t$, the length of newly-found path is at least $\sqrt{|V|}$. Therefore, there are no more than $|V| / \sqrt{|V|} = \sqrt{|V|}$ extra vertices-disjoint paths to be found. Since number of iteration is no more than this, the total number of iteration is the $\sqrt{|V|}$ done iteration plus the $\sqrt{|V|}$ extra iteration, which is $O(\sqrt{|V|})$.
+
+Therefore, the total time complexity is $O(\sqrt{|V|}|E|)$.
+
+</Proof>
 
 ## Min-Cost Flow
 
