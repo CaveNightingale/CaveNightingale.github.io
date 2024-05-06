@@ -51,7 +51,6 @@
 					childList: true,
 					subtree: true,
 				});
-				new ResizeObserver(() => this.recompile()).observe(this);
 			}
 
 			get _directed() {
@@ -66,7 +65,7 @@
 			}
 
 			get _width() {
-				return Math.min(+this.getAttribute("width"), this.clientWidth);
+				return +this.getAttribute("width");
 			}
 
 			recompile() {

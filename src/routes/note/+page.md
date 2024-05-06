@@ -2,4 +2,3 @@
 
 - Network flow
 - Dirichlet convolution
-- Numerical integration (Romberg / Lobatto)

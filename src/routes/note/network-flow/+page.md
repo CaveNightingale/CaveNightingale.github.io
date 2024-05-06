@@ -306,7 +306,8 @@ $'fn{bfs}(s, t, vertices)$ [
 		$u.level = -1$
 	]
 	$q = {s}$
-	$s.level = -1$
+	$s.level = 0$
+	$'fn{QUQUE-PUSH}(q, s)$
 	while $'neg 'fn{QUQUE-EMPTY}(q)$ [
 		$u = 'fn{QUQUE-POP}(q)$
 		for $e$ in $u.edges$ [

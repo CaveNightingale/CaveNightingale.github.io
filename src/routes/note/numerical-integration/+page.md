@@ -325,3 +325,71 @@ Lobatto's idea is use $a$, $b$ and the roots of $P'_{n-2}(x)$ as the points $x_i
 
 In this way, it uses the end points as information.
 
+Personally speaking, I don't think this is a useful property. I don't see cases where we are forced to use the end points. And though my teacher uses tons of slides on this topic, it's not on the textbook or in the exam anyway. Thus I don't want to spend time on this.
+
+## Romberg Integration
+
+### Extrapolation
+
+Suppose we have a formula to approximate $Q$.
+
+$$
+Q = F_n(h) + Kh^n + O(h^{n+1})
+$$
+
+where $h$ is a small number, and $K$ is a constant.
+
+We cut $h$ into half, and get
+
+$$
+Q = F_n(\dfrac{h}{2}) + K\dfrac{h^n}{2^n} + O(h^{n+1})
+$$
+
+Then
+
+$$
+F_{n + 1}(h)\\
+= \dfrac{2^n F_n(\dfrac{h}{2}) - F_n(h)}{2^n - 1}\\
+= \dfrac{2^n (Q - K\dfrac{h^n}{2^n} - O(h^{n+1})) - (Q - Kh^n - O(h^{n+1}))}{2^n - 1}\\
+= \dfrac{2^n Q - Kh^n - O(h^{n+1}) - Q + Kh^n + O(h^{n+1})}{2^n - 1}\\
+= \dfrac{(2^n - 1)Q + O(h^{n+1})}{2^n - 1}\\
+= Q + O(h^{n+1})
+$$
+
+This is called **extrapolation**.
+
+### Romberg Integration
+
+Supposse the function $f$ is infinitely differentiable.
+
+We can apply the extrapolation to the Trapezoidal Rule.
+
+Investigate the error of Trapezoidal Rule.
+
+$$
+\int_a^b f(x) dx = \dfrac{h}{2}(f(a) + f(b) + 2\sum_{i=1}^{n-1} f(a + ih)) + c_2h^2 + c_4h^4 + c_6h^6 + \cdots\\
+$$
+
+We found that $c_2, c_4, c_6, ...$ depend only on the high order derivatives of $f$, not $h$.
+
+Then we can apply the extrapolation to the Trapezoidal Rule.
+
+We cut the $h$ into half each time, and get $h_n = \dfrac{b - a}{2^n}$.
+
+Then we obtained a sequence of second order approximations. Let them be $R_{1, 1}, R_{2, 1}, R_{3, 1}, \cdots$.
+
+$$
+R_{n, 2} = \dfrac{4R_{n, 1} - R_{n-1, 1}}{4 - 1}
+$$
+
+This cancel out the $h^2$ term, and gives $4$-th order approximation.
+
+We can apply extrapolation multiple times. Generally, we get $2n$-th order approximation by the sequence of $2(n-1)$-th order approximations.
+thought
+$$
+R_{n, m} = \dfrac{4^m R_{n, m-1} - R_{n-1, m-1}}{4^m - 1}
+$$
+
+Notice that the offset of the sequence increased by $1$ and the length of the sequence decreased by $1$ each time.
+
+Finally when we get a sequence of single element $R_{n, n}$, we've got the $2n$-th order approximation.
